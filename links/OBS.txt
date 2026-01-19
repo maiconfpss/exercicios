@@ -1,0 +1,2 @@
+Se colocar mailto:algumEmail@gmail.com
+Como Link ao apertar no link vai direto pro app de email
