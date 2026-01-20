@@ -1,0 +1,227 @@
+<!doctype html>
+<!-- <!doctype html>: Declara o tipo de documento como HTML5. Por que? Para que o navegador saiba interpretar a página corretamente e use o modo padrão HTML5, evitando quirks mode. -->
+<html lang="pt-br">
+<!-- <html>: Tag raiz do documento HTML. lang="pt-br": Define o idioma como português brasileiro. Por que? Melhora acessibilidade (leitores de tela), SEO e localização. -->
+
+<head>
+    <!-- <head>: Contém metadados sobre o documento. Por que? Não é exibido na página, mas informa ao navegador e motores de busca sobre a página. -->
+    <meta charset="UTF-8" />
+    <!-- <meta charset="UTF-8">: Define a codificação de caracteres. Por que? Permite acentos, emojis e caracteres especiais sem erros de exibição. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport">: Controla a visualização em dispositivos móveis. Por que? Garante responsividade, ajustando a largura ao dispositivo e zoom inicial. -->
+    <title>Formulário Futurista 2026</title>
+    <!-- <title>: Título da página. Por que? Aparece na aba do navegador e é usado por motores de busca. -->
+
+    <style>
+        /* CSS: Linguagem para estilizar a página. Por que? Separa apresentação do conteúdo, tornando o código mais organizado e reutilizável. */
+
+        /* Reset CSS: Remove estilos padrão do navegador para consistência. */
+        * {
+            margin: 0; /* margin: Espaço externo. Por que? Remove margens padrão para controle total. */
+            padding: 0; /* padding: Espaço interno. Por que? Remove preenchimentos padrão. */
+            box-sizing: border-box; /* box-sizing: Como calcular largura/altura. Por que? Inclui padding e border na largura total, facilitando layouts. */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* font-family: Família de fontes. Por que? Define fonte moderna e legível. */
+        }
+
+        /* Corpo da página com fundo animado e centralização. */
+        body {
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460); /* background: Fundo. Por que? Gradiente dinâmico para vibe futurista. */
+            background-size: 400% 400%; /* background-size: Tamanho do fundo. Por que? Permite animação do gradiente. */
+            animation: gradientShift 15s ease infinite; /* animation: Animação. Por que? Cria movimento sutil no fundo para modernidade. */
+            min-height: 100vh; /* min-height: Altura mínima. Por que? Cobre toda a tela. */
+            display: flex; /* display: Tipo de layout. Por que? Flexbox para centralizar facilmente. */
+            justify-content: center; /* justify-content: Alinhamento horizontal. Por que? Centraliza o formulário. */
+            align-items: center; /* align-items: Alinhamento vertical. Por que? Centraliza verticalmente. */
+            color: #e0e0e0; /* color: Cor do texto. Por que? Texto claro para contraste com fundo escuro. */
+        }
+
+        /* Animação do gradiente de fundo. */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; } /* 0%: Posição inicial. */
+            50% { background-position: 100% 50%; } /* 50%: Metade da animação. */
+            100% { background-position: 0% 50%; } /* 100%: Volta ao início. */
+        }
+
+        /* Formulário com efeito glassmorphism (vidro futurista). */
+        form {
+            background: rgba(255, 255, 255, 0.1); /* background: Fundo semi-transparente. Por que? Cria efeito vidro. */
+            backdrop-filter: blur(20px); /* backdrop-filter: Filtro de fundo. Por que? Borrão para glassmorphism. */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* border: Borda. Por que? Define contorno sutil. */
+            max-width: 500px; /* max-width: Largura máxima. Por que? Responsividade. */
+            width: 100%; /* width: Largura. Por que? Ocupa espaço disponível. */
+            margin: 20px; /* margin: Margem. Por que? Espaço externo. */
+            padding: 50px 40px; /* padding: Preenchimento. Por que? Espaço interno generoso. */
+            border-radius: 20px; /* border-radius: Bordas arredondadas. Por que? Visual moderno. */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* box-shadow: Sombra. Por que? Profundidade 3D. */
+            transition: all 0.4s ease; /* transition: Transição. Por que? Animações suaves. */
+            position: relative; /* position: Posicionamento. Por que? Para pseudo-elementos. */
+        }
+
+        /* Pseudo-elemento para brilho neon. */
+        form::before {
+            content: ''; /* content: Conteúdo gerado. Por que? Cria elemento visual sem HTML. */
+            position: absolute; /* position: Absoluto. Por que? Posiciona sobre o form. */
+            top: -2px; /* top: Distância do topo. */
+            left: -2px; /* left: Distância da esquerda. */
+            right: -2px; /* right: Distância da direita. */
+            bottom: -2px; /* bottom: Distância do fundo. */
+            background: linear-gradient(45deg, #00d4ff, #090979, #ff6b6b); /* background: Gradiente. Por que? Borda neon. */
+            border-radius: 22px; /* border-radius: Arredondamento. */
+            z-index: -1; /* z-index: Ordem de empilhamento. Por que? Atrás do form. */
+            opacity: 0; /* opacity: Transparência. */
+            transition: opacity 0.4s ease; /* transition: Animação. */
+        }
+
+        /* Hover no form ativa o brilho. */
+        form:hover::before {
+            opacity: 1; /* opacity: Visível no hover. */
+        }
+
+        /* Título com efeito neon. */
+        h1 {
+            text-align: center; /* text-align: Alinhamento. Por que? Centraliza. */
+            margin-bottom: 40px; /* margin-bottom: Margem inferior. */
+            font-size: 3em; /* font-size: Tamanho. Por que? Destaque. */
+            color: #00d4ff; /* color: Cor. Por que? Azul neon futurista. */
+            text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff; /* text-shadow: Sombra. Por que? Efeito glow. */
+            font-weight: 300; /* font-weight: Peso. Por que? Fino e moderno. */
+        }
+
+        /* Labels com estilo minimalista. */
+        label {
+            display: block; /* display: Bloco. Por que? Ocupa linha inteira. */
+            margin-bottom: 15px; /* margin-bottom: Espaço. */
+            font-weight: 500; /* font-weight: Peso. */
+            color: #ffffff; /* color: Branco. Por que? Contraste. */
+            font-size: 1.1em; /* font-size: Tamanho. */
+        }
+
+        /* Inputs com design futurista. */
+        input[type="text"],
+        input[type="email"] {
+            width: 100%; /* width: Largura total. */
+            padding: 15px 20px; /* padding: Preenchimento. */
+            border: none; /* border: Sem borda. Por que? Minimalista. */
+            border-radius: 10px; /* border-radius: Arredondado. */
+            background: rgba(255, 255, 255, 0.2); /* background: Semi-transparente. */
+            color: #ffffff; /* color: Texto branco. */
+            font-size: 16px; /* font-size: Tamanho. */
+            backdrop-filter: blur(10px); /* backdrop-filter: Borrão. Por que? Glassmorphism. */
+            outline: none; /* outline: Remove foco padrão. */
+            transition: all 0.3s ease; /* transition: Suave. */
+            margin-bottom: 20px; /* margin-bottom: Espaço. */
+        }
+
+        /* Placeholder estilizado. */
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* color: Cinza claro. */
+        }
+
+        /* Foco nos inputs com glow. */
+        input:focus {
+            background: rgba(255, 255, 255, 0.3); /* background: Mais opaco. */
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5); /* box-shadow: Glow azul. */
+            transform: scale(1.02); /* transform: Leve aumento. */
+        }
+
+        /* Input file oculto. */
+        input[type="file"] {
+            display: none; /* display: Escondido. Por que? Para customizar. */
+        }
+
+        /* Label customizada para file. */
+        label[for="arquivo"] {
+            display: inline-block; /* display: Inline-block. */
+            padding: 15px 25px; /* padding: Preenchimento. */
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24); /* background: Gradiente. */
+            color: white; /* color: Branco. */
+            border-radius: 10px; /* border-radius: Arredondado. */
+            cursor: pointer; /* cursor: Ponteiro. */
+            font-size: 16px; /* font-size: Tamanho. */
+            text-align: center; /* text-align: Centralizado. */
+            transition: all 0.3s ease; /* transition: Suave. */
+            margin-bottom: 30px; /* margin-bottom: Espaço. */
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3); /* box-shadow: Sombra. */
+        }
+
+        /* Hover no botão file. */
+        label[for="arquivo"]:hover {
+            transform: translateY(-3px); /* transform: Levanta. */
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5); /* box-shadow: Glow. */
+        }
+
+        /* Botão submit futurista. */
+        button {
+            width: 100%; /* width: Total. */
+            padding: 18px; /* padding: Preenchimento. */
+            background: linear-gradient(45deg, #00d4ff, #090979); /* background: Gradiente azul. */
+            color: white; /* color: Branco. */
+            border: none; /* border: Nenhum. */
+            border-radius: 10px; /* border-radius: Arredondado. */
+            font-size: 18px; /* font-size: Grande. */
+            font-weight: 600; /* font-weight: Semi-negrito. */
+            cursor: pointer; /* cursor: Ponteiro. */
+            transition: all 0.3s ease; /* transition: Suave. */
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3); /* box-shadow: Sombra. */
+            position: relative; /* position: Relativo. */
+            overflow: hidden; /* overflow: Esconde excesso. */
+        }
+
+        /* Pseudo-elemento para efeito de onda no botão. */
+        button::before {
+            content: ''; /* content: Vazio. */
+            position: absolute; /* position: Absoluto. */
+            top: 0; /* top: Topo. */
+            left: -100%; /* left: Fora da esquerda. */
+            width: 100%; /* width: Largura total. */
+            height: 100%; /* height: Altura total. */
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); /* background: Onda. */
+            transition: left 0.5s; /* transition: Movimento. */
+        }
+
+        /* Hover no botão ativa a onda. */
+        button:hover::before {
+            left: 100%; /* left: Para direita. */
+        }
+
+        /* Hover geral no botão. */
+        button:hover {
+            transform: translateY(-3px); /* transform: Levanta. */
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.5); /* box-shadow: Glow maior. */
+        }
+
+        /* Responsividade para mobile. */
+        @media (max-width: 600px) {
+            form {
+                padding: 40px 30px; /* padding: Menor. */
+            }
+            h1 {
+                font-size: 2.5em; /* font-size: Menor. */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <body>: Contém o conteúdo visível da página. Por que? É onde o usuário interage. -->
+    <form method="get" enctype="multipart/form-data">
+        <!-- <form>: Define um formulário. method="get": Envia dados via URL. Por que? Visível, bom para testes. enctype: Permite arquivos. Por que? Necessário para uploads. -->
+        <h1>Login Futurista</h1> <!-- <h1>: Título principal. Por que? Hierarquia de cabeçalhos para SEO e acessibilidade. -->
+        <label for="nome">Nome:</label> <!-- <label>: Associa texto ao input. for="nome": Liga ao id. Por que? Acessibilidade, leitores de tela. -->
+        <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Digite seu nome completo" required />
+        <!-- <input type="text">: Campo de texto. id: Identificador único. name: Nome para envio. autocomplete: Sugestões. placeholder: Dica. required: Obrigatório. Por que? Validação e UX. -->
+
+        <label for="email">Email:</label> <!-- Mesmo para email. -->
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="exemplo@email.com" required />
+        <!-- <input type="email">: Campo de email. Por que? Validação automática de formato. -->
+
+        <label for="arquivo">Foto de Perfil:</label> <!-- Label para arquivo. -->
+        <input type="file" id="arquivo" name="arquivo" accept="image/*" /> <!-- <input type="file">: Upload de arquivo. accept: Apenas imagens. Por que? Restringe tipos. -->
+        <label for="arquivo">Selecionar Imagem</label> <!-- Label customizada. Por que? Melhor UX que input padrão. -->
+
+        <button type="submit">Acessar Sistema</button> <!-- <button type="submit">: Botão de envio. Por que? Submete o formulário. -->
+    </form>
+</body>
+
+</html>
+<!-- Fim do documento HTML. -->
