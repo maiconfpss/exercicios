@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cola de Tabelas</title>
+    <link rel="stylesheet" href="table.css">
+</head>
+<body>
+
+<!-- Container só pra centralizar -->
+  <div class="table-container">
+
+    <!-- Tabela começa aqui -->
+    <table>
+
+      <!-- Cabeçalho da tabela -->
+      <thead>
+        <tr>
+          <!-- th = célula de título -->
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th colspan="2">Estoque</th>  <!-- colspan ele pega o espaco de duas caixas pra frente 
+          obs so funciona eno msm corpo exemplos aqui é thead a cabeça entao nao desce pro corpo 
+          -->
+        </tr>
+      </thead>
+
+      <!-- Corpo da tabela -->
+      <tbody>
+        <tr>
+          <td>Mouse Gamer</td>
+          <td>Periféricos</td>
+          <td>R$ 150</td>
+          <td>32</td>
+          <td rowspan="5">ex rs</td>  <!-- rowspan descendo e cobrindo o espaço de 4 linhas esta 5 pq ele 
+          começa da segunda linha--> 
+        </tr>
+
+        <tr>
+          <td>Teclado Mecânico</td>
+          <td>Periféricos</td>
+          <td>R$ 350</td>
+          <td>15</td>
+        </tr>
+
+        <tr>
+          <td>Monitor 24"</td>
+          <td>Displays</td>
+          <td>R$ 900</td>
+          <td>8</td>
+        </tr>
+      </tbody>
+
+      <!-- Rodapé da tabela -->
+      <tfoot>
+        <tr>
+          <!-- colspan une colunas -->
+          <td colspan="3">Total de produtos</td>
+          <td colspan="2">55</td> 
+        </tr>
+      </tfoot>
+
+    </table>
+    <!-- Fim da tabela -->
+
+  </div>
+    
+</body>
+</html>

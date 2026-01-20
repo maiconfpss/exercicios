@@ -1,0 +1,50 @@
+/* Reset básico pra evitar surpresa */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Centraliza a tabela na tela */
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Estilo geral da tabela */
+table {
+  width: 80%;
+  border-collapse: collapse; /* ESSENCIAL as linhas se juntao ao inves de fica so quadrados juntos */
+  font-family: Arial, sans-serif;
+}
+
+/* th e td compartilham estilo */
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Cabeçalho */
+thead th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Corpo */
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Hover pra ficar chique */
+tbody tr:hover {
+  background-color: #eaeaea;
+}
+
+/* Rodapé */
+tfoot td {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}

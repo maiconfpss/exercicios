@@ -1,0 +1,150 @@
+<!--
+
+        Se colocar mailto:maiconfpss@gmail.com
+        Como Link ao apertar no link vai direto pro app de email.
+
+        E se colocar tel:+5575999756387 vei pra apps de ligação.
+
+-->
+
+<!--
+
+        UL = list unordered  Lista nao ordenada  ex visual              LISTA DE COMPRAS ⇣
+                                                                    •ABACATE •BANANA •MAÇA •UVA
+
+        OL = list ordered  Lista ordenada  ex visual                    NOTAS 3° ANO A ⇣
+                                                                    1° MARIA 100p   2° JOAO 96p   3° ANGELLA  89p
+        
+        LI = list item  Sao os intens da listas nao importa o tipo ele continua sendo os itens entao ordenadas lista 1 lista 2,3 é LI
+        e em nao ordenadas tbm é •a •b •c LI.
+
+-->
+
+<!--
+    Div é uma caixa pra conteudos.
+    E span é uma caixa para textos.
+-->
+
+<!--
+    Para encontrar arquivos control + space ou ./ pra acessar pastas a frente do html e se tiver atras do html ../ ante achar o arquivo.
+-->
+
+<!--
+    Nova Tag figure e figcaption para colocar uma imagem com legenda juntos semanticamente.
+-->
+
+<!--
+        HEIGHT é altura
+
+        WIDTH é largura
+
+        MARGIN é espaço pra fora tipo afastar das coisas LEFT, pra um lado RIGHT, pra outro lado TOP, pra cima. BOTTOM, pra baixo.
+
+        PADDING é o espaçamento dentro da coixa tipo um botao com txt, com padding o txt respira.
+-->
+
+<!--
+
+     DISPLAY é como o elemento se comporta socialmente.
+
+        block ocupa a linha inteira, egocêntrico
+
+        inline fica na linha, educado
+
+        inline-block misto confuso porém útil
+
+        flex o modo “organizador profissional”
+
+        grid o arquiteto que planeja tudo
+-->
+
+<!--
+
+    POSITION é onde o elemento vive no mundo.
+
+        static padrão, nem pensa
+
+        relative permite mexer nele sem perder a casa
+
+        absolute sai da matrix, depende do pai
+
+        fixed grudado na tela tipo anúncio chato
+
+        sticky meio indeciso, cola quando precisa
+
+            top / bottom / left / right
+        Só funcionam se o position deixar.
+        São as coordenadas tipo GPS do elemento.
+-->
+
+<!--
+
+    BORDER é a linha em volta. Pode ser invisível, feia ou estilosa.
+        ex= border: 2px solid red;
+        ex= border-radius: 50%;
+        ex= border-top-left-radius: 50%;
+
+-->
+
+<!--
+
+    BOX-SIZING esse aqui muda vidas.
+
+        content-box padrão caótico
+
+        border-box o correto, civilizado, recomendado
+
+        Com border-box, width e height incluem padding e borda.
+        Sem ele, teu layout vira um quebra-cabeça do mal.
+
+-->
+
+    OVERFLOW é o que fazer quando o conteúdo vaza.
+
+        hidden corta sem dó
+
+        scroll força barra
+
+        auto decide sozinho
+
+        visible deixa o caos acontecer
+
+-->
+
+<!--
+
+    TEXT-ALIGN alinha texto. Não é pra alinhar div, para com isso.
+
+-->
+
+<!--
+
+    ALIGN-ITEMS / JUSTIFY-CONTENT só no flex ou grid.
+
+        justify-content eixo principal em resumo segue o reteiro se o obejeto tiver em tinha pros lados ele vira os lados se tiver 
+        empilhado de baixo pra cima ele fica de baixo pra cima.
+        BATMAN
+
+        align-items eixo secundário e esse a msm coisa so que é mais um secundario e uma grande dupla do HTML e CSS.
+        ROBIN
+    
+-->
+
+<!--
+
+    New tag controlsList="nodownload" pra nao permitir download.
+
+    CONTROLS so pra aparecer os controles e poder tocar o video. obs tbm serve pra audio.
+
+    pra add videos é VIDEO SRC... e tbm poder colocar SOURCE SRC no meio das tags videos e colocar tipo
+    video.mkv, video.mov, video.mp4, video.webm, varios videos pra ter certeza que vai reproduzir
+    em qualquer navegador
+
+    tbm tem o AUTOPLAY que toca o video automaticamente porem a maioria dos navegadores bloqueia,
+    porem se deixar pra iniciar mutado com a tag MUTED ele toca normalmente ao iniciar o site.
+
+    E com o POSTER="diretorio da foto"  O video fica com uma capa tipo as do YT.
+
+    E tbm pode mudar a largura e autura dentro da tag video 
+
+-->
