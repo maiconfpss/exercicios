@@ -1,3 +1,12 @@
+<!-- 
+
+    OBS CSS é estilo cascata tipo cachoeira entao o ultimo tem mais poder tipo color red e abaixo color blue na msm 
+    tag o blue vai ser a cor e o red vai ser discartado.
+    Porem existe a tag !important que da prioridade se colocasse no red msm o blue tando abaixo a tag seria red so 
+    que nao pode ficar tacando !important em td so em ocasioes especiais.
+
+-->
+
 <!--
 
     SITES PARA PALETA DE CORES
