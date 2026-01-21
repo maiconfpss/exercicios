@@ -1,7 +1,56 @@
 <!--
 
+    SITES PARA PALETA DE CORES
+
+        https://coolors.co/?home
+
+        https://color.adobe.com/pt/
+
+    CORES QUE GOSTO
+
+            #232388 azul lindo escuro
+
+            #e0e1de cor de folha de jornal menos branco mais cinza e beje
+
+            #de9000 Harvest Gold   /Cor amarela ouro design food
+
+            #bf0019 Mahogany Red   /Cor vermelha design food
+
+            #0c1618 Ink Black 
+
+            #e1e6e1 Alabaster Grey
+
+            #faf4d3 Cornsilk 
+
+<!--
+
     Div é uma caixa pra conteudos.
     E span é uma caixa para textos.
+
+-->
+
+<!--
+
+    O em é um tamanho relatipo ao pai entao se um h1 tem 20px e um paragrafo filho tem 0.5em 
+    ele tem 10px e ingual ele é o porcentagem % nao tem diferença dos dois é mais slr
+    E tbm se tem por exemplo [ Um vo de 10px um pai de 2em que fica 20px e um filho de 
+    2em o filho vai ficar 40px ] ai é bom tomar cuidado pra nao se perder 
+    Tbm tem o REM que é relativo ao tamanho da primeira fonte. tipo de tem uma fonte padrao 
+    tipo * {font-size: 16px;} 1rem é 16px 2rem é 32px e assim vai.
+
+-->
+
+<!--
+
+    PADDING é os espaçamento de dentro da caixa é tipo um semente crescendo na terra, crescer 
+    de dentro pra fora.
+
+    MARGIN é os espaçamento de fora da caixa é tipo duas pessoas que se odeiam a cada 10px é 
+    10metros que uma fica longe da outra.
+
+-->
+
+<!--
 
 -->
 

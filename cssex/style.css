@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+/*  As vezes quando olhar no height vai ta vai tar um numero maior que o heith padrao da caixa
+    msm com box-sizing border-box isso é o espremimento passando mais msm assim ainda ta certo
+    é so olhar no computado e abrir o height que la dentro vai tar o tamanho certo. */
+
+.esquerda-direita {
+    background-color: #3700ff;
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: auto;                       /* centralizar */
+    margin-top: 10px;                   /* cima ↑ */
+    margin-bottom: 20px;                /* baixo ↓ */
+    margin-left: 50px;                  /* esquerda ← */
+    margin-right: 25px;                 /* direita → */
+    padding-left: 50px;                 /* esquerda ← */  
+    padding-right: 25px;                /* direita → */
+    padding-top: 70px;                  /* cima ↑ */
+    padding-bottom: 80px;               /* baixo ↓ */
+
+    /* ATALHOS MARGIN-PADDING */
+    
+    /* padding: 50px ↑ 100px → 50px ↓ 50px ←       cima direita baixo esquerda */
+    /* padding: 50px ↑ 50px ←→ 50px ↓              cima  esquerda-direita  baixo*/
+    /* padding: 50px ↑↓ 100px ←→                   cima-baixo esquerda-direita */
+    /* padding: 50px ↑→↓←                          cima esquerda baixo direita */
+
+}
