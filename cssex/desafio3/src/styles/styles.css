@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #5D5D7D;
+}
+
+.conteiner {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.cleft {
+    width: 60%;
+    display: inline-block;
+    margin-left: 136px;
+    margin-top: 379px;
+    
+}
+
+.cleft > h1, .cleft > p {
+    margin-bottom: 15px;
+
+}
+
+.cright {
+    display: inline-block;
+    background-color: rgba(93, 93, 125, 0.15);
+    width: 40%;
+    height: 100vh;
+    position: absolute;
+}
+
+.cleft h1 {
+    width: 368px;
+    font-size: 70px;
+    line-height: 80px;
+}
+
+.cleft p {
+    width: 540px;
+    font-size: 28px;
+    line-height: 48px;
+    opacity: 60%;
+    
+}
+
+.cleft .cbtn {
+    width: 269px;
+    height: 62px;
+    background-color: #9499EA;
+    color: #ffff;
+    border-radius: 30px;
+    border: none;
+    transition: all 0.3s ease;
+
+}
+
+.conteiner img {
+    position: relative;
+    top: 25%;
+    right: 130px;
+}
+
+ a {
+    line-height: 41px;
+    color: #5D5D7D;
+    font-size: 28px;
+    margin-left: 41px;
+    margin-top: 24px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+a:hover,
+.cbtn:hover {
+    opacity: .4;
+    transform: scaleY(1.3);
+
+}
+
+a:active,
+.cbtn:active {
+    opacity: 0.8;
+}
+
+a:focus,
+.cbtn:focus {
+    border: none;
+}
+
+a:nth-child(2) {
+    color: #5D5D7D;
+    opacity: 40%;
+}
+
+@media (max-width: 768px) {
+
+    nav a {
+        display: none;
+    }
+
+    .cright {
+        display: block;
+        height: auto;
+        width: 100%;
+        position: static;
+        padding: 40px;
+        
+    }
+    
+    .cleft {
+        width: 100%;
+        height: 50%;
+        padding: 0;
+        margin: 0;
+        
+    }
+
+    .cleft h1 {
+    width: auto;
+    font-size: 36px;
+    line-height: 52px;
+    margin: 58px 50px 0 50px;
+    text-align: center;
+}
+
+.cright img {
+    position: static;
+    max-width: 90%;
+
+}
+
+.cleft p {
+    width: auto;
+    margin: 15px 40px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.cleft {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+}

@@ -171,3 +171,28 @@
         ROBIN
     
 -->
+
+<!--
+
+                       VANUS FALAR DE POSITION
+
+        postion: static (padrão) Não aceitas valores de top, bottom, right e left.
+
+        postion: fixed fixa o elemento na tela
+
+        postion: sticky-age como um adesivo, fixa o elemento só onde eu determinar
+
+        postion: relative posição relativa a posição inicial dele
+
+        postion: absolut -posição absoluta(fixa) a algum elemento ou a pagina
+        SE não tiver pai / pai for static > Posiciona referente a pagina
+        - Se o pai NÃO for static Posiciona referente ao pai
+
+        propriedades:
+
+        top
+        bottom
+        -left
+        right
+
+-->
