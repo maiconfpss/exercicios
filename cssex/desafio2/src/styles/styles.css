@@ -82,7 +82,7 @@ section p {
     font-weight: 500;
     color: #6FBF44;
     cursor: pointer;
-    padding-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 @media (max-width: 768px) {
