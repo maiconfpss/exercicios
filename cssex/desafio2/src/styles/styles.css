@@ -108,6 +108,7 @@ section p {
 
   section {
     margin: 0px auto;
+    text-align: center;
   }
 
   main .logo-image {
@@ -134,9 +135,9 @@ section p {
   }
 
   section .link-more {
-    display: flex;
-    justify-content: center;
-    margin-top: -40px;
+    display: inline-block;
+    margin-top: 20px;
+    
   }
 }
 
