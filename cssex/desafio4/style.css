@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    /* cor de fundo do site sendo esticada pelo min-height 85vh da div hero */
+    color: #333;
+}
+
+header {
+    background-color: #ffffff;
+    /* cor mais claro pro header ter mais destaque */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    /* sombra para dar destaque ao header */
+    position: fixed;
+    /* fixa o header no topo da tela */
+    width: 100%;
+    /*pra fazer com que o header ocupe toda a largura da tela */
+    top: 0;
+    /*pra fazer com oque o header cole com o topo da tela */
+    z-index: 1000;
+    /* para garantir que o header fique por cima de outros elementos */
+}
+
+nav {
+    display: flex;
+    /* dar super poderes */
+    justify-content: space-between;
+    /* jogando cada um pro seu lado tipo logo no começo menu no meio e contatos no fim */
+    align-items: center;
+    /* ta fazendo o trabalho de centralizar o conteudo de cima pra baixo dentro da header */
+    max-width: 1200px;
+    /* pra garantir que o conteudo nao fique muito grande OBS eu nao sabia pensava ser responsividade foi a ia que sugeriu eu desliguei ela pra nao ficar jogando respostar na minha cara
+     mais ela ta jogando algumas msm assim OBS na verdade era vc gemini que tava sugerindo 😶 */
+    margin: 0 auto;
+    /* aqui eu nao sei normalmente eu uso pra centralizar */
+    padding: 1.2rem 2rem;
+    /* aqui é espaco esta crescendo de dentro pra fora 1x2 de autura e 2x de largura pra o layout respirar um pouco */
+}
+
+.logo {
+    font-size: 1.5rem;
+    /* a logo é um nome entao ta pro txt da logo crescer 1x5  do tamanho normal  */
+    font-weight: 700;
+    /* grossura da font logo */
+    color: #6c63ff;
+    /* cor da font logo  */
+    text-decoration: none;
+    /* aqui é pq a font esta como link entao fica um unrline abaixo ai essa tag tira */
+}
+
+.nav-links {
+    display: flex;
+    /* aqui da super poderes e deixa um na frente do outro que pro tipo de menu é perfeito */
+    list-style: none;
+    /* aqui tira os . que fica antes dos nomes como é listas nao ordenadas fica o ponto antes  */
+    gap: 2rem;
+    /* o espaçamento entre menu pra respirar e aqui so funciona pq ta como display flex */
+}
+
+.nav-links a {
+    text-decoration: none;
+    /* pra tirar underline */
+    color: #333;
+    /* cor */
+    font-weight: 500;
+    /* grossura */
+    transition: color 0.3s;
+    /* velocidade de acionamento pra ficar mais suave e com esse color eu vi no f12 que pega direto na cor e em baixo tem hm hover com cor entao é uma transiçao na cor do hover */
+}
+
+.nav-links a:hover {
+    color: #6c63ff;
+    /* cor hover como explicado acima */
+}
+
+.btn-contact {
+    padding: 0.6rem 1.5rem;
+    /* tamanho do botao contatos */
+    background-color: #6c63ff;
+    /* cor botao */
+    color: #fff;
+    /* cor font botao */
+    border: none;
+    /* tirar bordas ao redor */
+    border-radius: 50px;
+    /* deixar as bordar laterais redondas */
+    cursor: pointer;
+    /* maozinha ao passar mouse  */
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    /* transition direto na cor do botao */
+}
+
+.btn-contact:hover {
+    background-color: #5a52d5;
+    transform: scale(1.05);
+    /* deixar o botao maior com hover ao passar mouse botao */
+}
+
+main {
+    margin-top: 80px;
+    /* abaixar as proximas div que vem pra fica mais abaixo  */
+}
+
+.hero {
+    display: flex;
+    /* poderes */
+    align-items: center;
+    /* alinhar td a div hero que ta pegando td o conteudo no total sendo duas divs na msm div pra hero */
+    justify-content: space-between;
+    /* dividir uma div prum lado e a outra pro outro */
+    max-width: 1200px;
+    /* nao deixar ficar mt grande */
+    margin: 0 auto;
+    /* acho que é pra centralizar pois o justify ja esta como space e nao center provavel que tou errado mais deixar oque eu acho msm assim */
+    padding: 4rem 2rem;
+    /* espaçamento entre as div filho pra pai  */
+    min-height: 85vh;
+    /* ta fazendo a div pai juntamente com os filhos descerem pq o minimo de espaco pra pegar é 85 de autura ai faz eles tirem mais pro meio por causa dos flex que estao nessa div  */
+}
+
+.hero-content {
+    flex: 1;
+    /* esse nao tenho certeza mais quando eu tirei ele pelo f12 ele fez a img sumi */
+    padding-right: 3rem;
+    /* esse padding ta empurando o txt pra longe da img  */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #2d2d2d;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-primary {
+    padding: 1rem 2.5rem;
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-secondary {
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    color: #6c63ff;
+    border: 2px solid #6c63ff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: #eef0ff;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.services {
+    background-color: #ffffff;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    color: #2d2d2d;
+    position: relative;
+    display: inline-block;
+}
+
+.services h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background-color: #6c63ff;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: #6c63ff;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #2d2d2d;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 2rem;
+        justify-content: center;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-top: 3rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+    }
+}
