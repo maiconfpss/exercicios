@@ -131,28 +131,40 @@ main {
     /* esse padding ta empurando o txt pra longe da img  */
 }
 
-.hero-content h1 {
+.hero-content h1 { /* titulo */
     font-size: 3.5rem;
+    /* tamanho da font */
     line-height: 1.2;
+    /* altura */
     margin-bottom: 1.5rem;
+    /* abaixarr o paragrafo abaixo pra ter um respiramento */
     color: #2d2d2d;
+    /* cor */
 }
 
-.hero-content p {
+.hero-content p { 
     font-size: 1.1rem;
+    /* tamanho  */
     color: #666;
+    /* cor */
     margin-bottom: 2.5rem;
+    /* abaixar mais ante os botoes um espaçamento */
     line-height: 1.6;
+    /* altura */
     max-width: 500px;
+    /* limite de largura */
 }
 
 .hero-buttons {
     display: flex;
+    /* ativar poder do gap e dar espaço entre os botoes */
     gap: 1rem;
+    /* espaço entre botoes concedido pelo flex */
 }
 
 .btn-primary {
     padding: 1rem 2.5rem;
+    /* respiro entre botao e trxto interno  */
     background-color: #6c63ff;
     color: #fff;
     border: none;
@@ -177,19 +189,24 @@ main {
 
 .btn-primary:hover {
     transform: translateY(-3px);
+    /* subir botao efeito */
     box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+    /* efeito sombra */
 }
 
 .btn-secondary:hover {
     background-color: #eef0ff;
+    /* uma cor sutil */
 }
 
 .hero-image {
     flex: 1;
+    /* fazer a imagem respeitar seu lugar  */
 }
 
 .hero-image img {
     width: 100%;
+    /* junto com flex 1 deixa a imagem contida e pegando 100% do seu espaco  */
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
@@ -198,17 +215,20 @@ main {
     background-color: #ffffff;
     padding: 6rem 2rem;
     text-align: center;
+    /* alinhar ao centro */
 }
 
 .services h2 {
     font-size: 2.5rem;
     margin-bottom: 4rem;
+    /* aqui e o txt align acredito que seja tipo resposabilidade basica de se adapatar depedendo da janela com o posicao relativa fia relativa ao pai services  */
     color: #2d2d2d;
     position: relative;
     display: inline-block;
 }
 
 .services h2::after {
+    /* eu entendi td com ajuda do f12 porem acredito que so com experiencia pra intender de por em pratica  */
     content: '';
     display: block;
     width: 50%;
