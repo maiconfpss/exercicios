@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --texts-font: "Inter", sans-serif;
+    --titles-font: "Raleway", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: #F5F8FF;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.logo {
+    margin: 31px 0 0 112px;
+    width: 170px;
+    height: 37px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 150px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.7px);
+    -webkit-backdrop-filter: blur(3.7px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    margin-top: 16px;
+    width: 500px;
+    height: 70px;
+
+}
+
+.menu ul {
+    list-style: none;
+
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #8987A1;
+    font-family: var(--texts-font);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.menu .temp {
+    color: var(--secondary-color);
+}
+
+.btn-sign {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-in {
+    background-color: transparent;
+    color: rgba(137, 135, 161, 0.8);
+    width: 50px;
+    height: 50px;
+    font-weight: 16px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.btn-up {
+    background-color: #4E47FF;
+    color: #ffffff;
+    font-weight: bold;
+    width: 130px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid rgba(77, 71, 255, 0.1);
+    margin-right: 112px;
+    
+}
+
+.img-bottom {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: -86px;
+    z-index: 1;
+}
+
+.first-part {
+    background-image: linear-gradient(to bottom, rgba(245, 248, 255, 0) 60%, #F5F8FF 100%), url(../image/mask-group.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom bottom;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    margin-top: -86px;
+    z-index: 0;
+}
+
+.text-start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.text-start h1 {
+    color: #252432;
+    font-family: var(--titles-font);
+    font-weight: 700;
+    font-size: 73px;
+
+}
+
+.text-start button {
+    background-color: #252432;
+    color: #ffffff;
+    width: 210px;
+    height: 60px;
+    margin-top: 35px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* SECTION */
+.wedo {
+  padding: 80px 20px;
+}
+
+.titlle-wedo {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  font-size: 60px;
+  font-weight: 700;
+  color: #252432;
+}
+
+/* GRID */
+.wedo-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* CARD BASE */
+.cards-wedo {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-wedo:nth-child(4) {
+    grid-row: span 2;
+}
+
+/* ÍCONE */
+.cards-wedo .icon {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.cards-wedo .icon img {
+  background: #F5F8FF;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* TEXTO */
+.cards-wedo h3 {
+  margin-top: 56px;
+  font-size: 20px;
+  color: #252432;
+}
+
+.cards-wedo p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #8987A1;
+  line-height: 1.5;
+}
+
+/* CARD ATIVO */
+.cards-wedo.active {
+  border: 2px solid #4E47FF;
+}
+
+/* CARD GRANDE */
+.cards-wedo.webflow {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+/* CARD E-COMMERCE (4º card) - ocupa 2 LINHAS (vertical) */
+.cards-wedo:nth-child(4) {
+    grid-row: span 2;
+}
+
+/* CARD IMAGEM */
+.cards-wedo.image-card {
+    padding: 0;
+}
+
+.cards-wedo.webflow .webflow-text {
+  max-width: 60%;
+}
+
+.cards-wedo.webflow .webflow-logo {
+  max-width: 120px;
+}
+
+/* CARD IMAGEM */
+.cards-wedo.image-card {
+  padding: 0;
+}
+
+.cards-wedo.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+    .wedo-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-wedo.webflow {
+        grid-column: span 2;
+    }
+
+    /* Reseta o span do card 4 em telas menores */
+    .cards-wedo:nth-child(4) {
+        grid-row: auto;
+    }
+}
+@media (max-width: 600px) {
+  .wedo-box {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-wedo.webflow {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cards-wedo.webflow .webflow-logo {
+    margin-top: 16px;
+  }
+}

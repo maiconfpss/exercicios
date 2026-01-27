@@ -1,0 +1,104 @@
+* {
+    /* Reset global: remove margens e espaçamentos padrão de todos os navegadores */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid; /* Ativa o modo Grid Layout */
+
+    /* 
+       EXPLICAÇÃO DOS TAMANHOS DAS LINHAS (ROWS):
+       1. 80px: Tamanho fixo (cabeçalho). Não muda.
+       2. auto: O tamanho se adapta ao conteúdo que estiver dentro (banner).
+       3. 1fr: "1 fraction" (fração). Ocupa todo o espaço LIVRE que sobrar na tela. É o que faz o layout esticar.
+       4. auto: Se adapta ao conteúdo (main).
+       5. 50px: Tamanho fixo.
+       Obs: Você desenhou 6 linhas no 'areas' abaixo, mas definiu 5 tamanhos aqui. A última (footer) ficará automática.
+    */
+    grid-template-rows: 80px auto 1fr auto 50px;
+
+    /* 
+       EXPLICAÇÃO DAS COLUNAS (COLUMNS):
+       O espaço horizontal é dividido em 6 partes no total (1 + 4 + 1).
+       - 1fr: Lateral esquerda pega 1 parte.
+       - 4fr: O meio pega 4 partes (é 4x maior que a lateral).
+       - 1fr: Lateral direita pega 1 parte.
+    */
+    grid-template-columns: 1fr 4fr 1fr;
+
+    height: 100vh; /* 100% da altura da tela (Viewport Height) */
+    
+    /* Mapa visual: define onde cada 'grid-area' vai aparecer */
+    grid-template-areas: 
+    "header header header"
+    "leftaside banner rightaside"
+    "leftaside main-content rightaside"
+    "leftaside main rightaside"
+    "leftaside lowcontent rightaside"
+    "footer footer footer";
+    
+    grid-gap: 10px; /* Espaço entre os blocos */
+    padding: 10px;  /* Espaço interno do container */
+}
+
+
+
+
+
+    .header {
+        grid-area: header; /* Conecta este elemento ao nome "header" no mapa do container */
+        display: flex;
+        background-color: red;
+        align-items: center; /* Centraliza verticalmente (graças ao display: flex) */
+        justify-content: center; /* Centraliza horizontalmente */
+    }
+
+    .banner {
+        grid-area: banner;
+        display: flex;
+        background-color: green;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .leftaside {
+        grid-area: leftaside;
+        display: flex;
+        background-color: blue;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-content {
+        grid-area: main-content;
+        display: flex;
+        background-color: yellow;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rightaside {
+        grid-area: rightaside;
+        display: flex;
+        background-color: gray;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lowcontent {
+        grid-area: lowcontent;
+        display: flex;
+        background-color: cadetblue;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer {
+        grid-area: footer;
+        display: flex;
+        background-color: orange;
+        align-items: center;
+        justify-content: center;
+    }
