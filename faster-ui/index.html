@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faster UI</title>
     <link rel="stylesheet" href="./src/stylles/stylles.css">
+
+    <!-- OBS : PRIMEIRO PROJETO MAIS COMPLEXO QUE TENTEI E NAO TEM VERSAO RESPONSIVA -->
 </head>
 
 <body>
@@ -87,7 +89,7 @@
                     </p>
                 </div>
 
-                <div class="cards-wedo">
+                <div class="cards-wedo solutions">
                     <span class="icon">
                         <img src="./src/image/box-wedo/store.svg" alt="">
                     </span>
@@ -96,33 +98,121 @@
                         From concept to launch, we create stunning,
                         user-centric websites that elevate your brand.
                     </p>
-                    <img src="./src/image/two-peple.png" alt="">
+                    <img class="two-peple" src="./src/image/two-peple.png" alt="">
                 </div>
 
                 <!-- Card grande -->
                 <div class="cards-wedo webflow">
                     <div class="webflow-text">
                         <span class="icon">
-                            <img src="./src/image/box-wedo/web-flow.svg" alt="">
+                            <img src="./src/image/box-wedo/web-flow.svg" alt=" Webflow ">
                         </span>
                         <h3>Webflow</h3>
                         <p>
-                            From concept to launch, we create stunning,
-                            user-centric websites.
+                            From concept to launch, we create stunning, user-centric websites that elevate your brand
+                            and engage your audience.
                         </p>
                     </div>
-                    <img class="webflow-logo" src="webflow-logo.svg" alt="">
+                    <div class="bgc-webflow">
+                        <img class="webflow-logo" src="./src/image/webflow.png" alt="">
+                    </div>
                 </div>
 
-                <!-- Card imagem -->
-                <div class="cards-wedo image-card">
-                    <img src="people.jpg" alt="">
+                <div class="cards-wedo">
+                    <span class="icon">
+                        <img src="./src/image/box-wedo/cmd.svg" alt="">
+                    </span>
+                    <h3>Custom Development</h3>
+                    <p>
+                        From concept to launch, we create stunning,
+                        user-centric websites that elevate your brand.
+                    </p>
                 </div>
 
             </div>
         </section>
 
+        <section class="work">
+            <h2>Check our Work</h2>
+            <div class="btn-work">
+                <button>←</button>
+                <button>→</button>
+            </div>
+            <p>Take a look at some of our recent projects to see how we've helped businesses like yours succeed online.
+            </p>
+            <div class="img-work">
+                <img class="img-left" src="./src/image/img-left.png" alt="image left">
+                <img class="img-center" src="./src/image/img-center.png" alt="image center">
+                <img class="img-right" src="./src/image/img-right.png" alt="image right">
+            </div>
+        </section>
+        <article class="reviews">
+            <img class="group" src="./src/image/group.png" alt="Reviws">
+            <div class="writing-review">
+                <h2><span>5.0</span> Based on <span>145</span> Reviews</h2>
+                <div class="star">
+                    <img src="./src/image/star-of-david.png" alt="Stars">
+                    <img src="./src/image/star-of-david.png" alt="Stars">
+                    <img src="./src/image/star-of-david.png" alt="Stars">
+                    <img src="./src/image/star-of-david.png" alt="Stars">
+                    <img src="./src/image/star-of-david.png" alt="Stars">
+                </div>
+            </div>
+        </article>
 
+        <section class="contact">
+            <div class="container">
+                <h2>Let’s Get in Touch</h2>
+
+                <form>
+
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="email" id="email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">name</label>
+                        <input type="text" id="name" placeholder="full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">message</label>
+                        <textarea name="message" id="message" placeholder="write your message..."></textarea>
+                    </div>
+                    <button class="btn-contact" type="submit">Get in Touch</button>
+
+                    <img class="img1" src="./src/image/img2.png" alt="">
+                    <img class="img2" src="./src/image/img1.png" alt="">
+
+                </form>
+
+                <footer>
+                    <div class="container-footer">
+                        <div class="information-footer">
+                            <img class="logo-footer" src="./src/image/logo.png" alt="Logo">
+                            <p>Ready to elevate your online presence? Contact us today to discuss your project and discover how
+                                we can bring your vision to life.
+                            </p>
+                            <div class="heart-footer">
+                                <img src="./src/image/box-wedo/heart.svg" alt="Heart">
+                                <p>© maiconfpss 2k26 learning by copying by inkyy.com</p>
+                            </div>
+                        </div>
+                        <div class="links-footer">
+                            <div class="menu-footer">
+                                <a href="#" >Home</a>
+                                <a href="#">About</a>
+                                <a href="#">How it Works</a>
+                                <a href="#">Services</a>
+                            </div>
+                            <div class="social-media-footer">
+                                <a href="https://www.instagram.com/maiconfpss/" target="_blank"><img src="./src/image/box-wedo/insta.svg" alt="Instagram"></a>
+                                <a href="https://www.tiktok.com/@maiconfpss" target="_blank"><img src="./src/image/box-wedo/tiktok.svg" alt="Tiktok"></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </section>
     </main>
 
 </body>

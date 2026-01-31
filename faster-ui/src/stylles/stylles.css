@@ -16,8 +16,13 @@
     font-family: "Inter", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #F5F8FF;
+    backdrop-filter: blur(10px);
+    background-color: rgba(245, 248, 255, 0.85)
 }
 
 header {
@@ -135,6 +140,7 @@ header ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 104px;
 
 }
 
@@ -219,11 +225,7 @@ header ul {
   font-size: 14px;
   color: #8987A1;
   line-height: 1.5;
-}
-
-/* CARD ATIVO */
-.cards-wedo.active {
-  border: 2px solid #4E47FF;
+  max-width: 230px;
 }
 
 /* CARD GRANDE */
@@ -239,6 +241,14 @@ header ul {
 /* CARD E-COMMERCE (4º card) - ocupa 2 LINHAS (vertical) */
 .cards-wedo:nth-child(4) {
     grid-row: span 2;
+}
+
+.solutions {
+  height: 525px;
+
+  .two-peple {
+    margin-top: 48px;
+  }
 }
 
 /* CARD IMAGEM */
@@ -262,37 +272,299 @@ header ul {
 .cards-wedo.image-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   border-radius: 12px;
 }
 
-/* RESPONSIVO */
-@media (max-width: 1024px) {
-    .wedo-box {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .cards-wedo.webflow {
-        grid-column: span 2;
-    }
-
-    /* Reseta o span do card 4 em telas menores */
-    .cards-wedo:nth-child(4) {
-        grid-row: auto;
-    }
+.cards-wedo .webflow-logo {
+  min-width: 218px;
+  max-height: 214px;
+  padding: 70px;
+  border-radius: 5px;
+  background-color: #4E47FF;
 }
-@media (max-width: 600px) {
-  .wedo-box {
-    grid-template-columns: 1fr;
+
+.webflow h3 {
+  margin-top: 19px;
+}
+
+.work {
+  width: auto;
+  padding: 80px 20px;
+  position: relative;
+  z-index: 0;
+}
+
+.work::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../image/check.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom bottom;
+  filter: grayscale(1);
+  z-index: -2;
+}
+
+.work::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F5F8FF; /* a cor gelo */
+  opacity: 0.7; /* ajusta esse valor até ficar igual ao Figma */
+  z-index: -1;
+}
+
+.work h2 {
+  font-size: 60px;
+  font-family: var(--titles-font);
+  text-align: center;
+  font-weight: bold;
+  color: #252432;
+  margin-bottom: 32px;
+}
+
+.work p {
+  display: flex;
+  margin: 0 auto;
+  font-size: 14px;
+  color: #8987A1;
+  font-family: var(--texts-font);
+  text-align: center;
+  font-weight: 400;
+  max-width: 440px;
+  margin-bottom: 50px;
+}
+
+.work button {
+  background-color: #252432;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bolder;
+}
+
+.btn-work {
+  display: flex;
+  justify-content: space-between;
+  margin: -75px 400px 0;
+}
+
+.img-work {
+  display: flex;
+  margin: auto 0;
+  width: 765px;
+  height: 500px;
+  gap: 20px;
+}
+
+.work .img-work {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews {
+  display: flex;
+  justify-content: center;
+  background-color: #9dccf2c5;
+  width: 410px;
+  height: 85px;
+  padding: 23px;
+  border-radius: 22px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+  .group {
+    width: 145px;
+    height: 33px;
   }
 
-  .cards-wedo.webflow {
-    grid-column: auto;
+  h2 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #8987A1;
+  }
+
+  span {
+    font-weight: bold;
+    color: #252432;
+  }
+
+  .star {
+    display: flex;
+    gap: 5px;
+    width: 50px;
+    height: 15px;
+  }
+
+.contact {
+    border: 1px solid #E5E5E5;
+    margin-top: 80px;
+}
+
+
+
+.contact h2 {
+    font-size: 60px;
+    font-family: var(--titles-font);
+    font-weight: bold;
+    color: #252432;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.container {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cards-wedo.webflow .webflow-logo {
-    margin-top: 16px;
-  }
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+
+    label {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        text-indent: 40px;
+    }
+
+    input {
+        display: flex;
+        margin: auto;
+        width: 650px;
+        height: 65px;
+        padding: 25px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        background-color: transparent;
+    }
+
+    textarea {
+        display: flex;
+        margin: auto;
+        width: 650px;
+        height: 200px;
+        padding: 25px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        background-color: transparent;
+    }
+}
+
+.btn-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 650px;
+    height: 65px;
+    background-color: #4E47FF;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.img1 {
+    position: relative;
+    top: -190px;
+    right: 230px;
+    width: 250px;
+    height: 250px;
+    z-index: -1;
+}
+
+.img2 {
+    position: relative;
+    top: -700px;
+    left: 580px;
+    width: 200px;
+    height: 200px;
+    z-index: -1;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    align-items: center;
+    padding: 80px;
+    border-radius: 40px;
+    gap: 40px;
+
+    a {
+      text-decoration: none;
+        color: #8987A1;
+        font-family: var(--texts-font);
+        font-size: 13px;
+    }
+
+    p {
+      color: #8987A1;
+      font-family: var(--texts-font);
+      font-size: 13px;
+      margin-bottom: 60px;
+      max-width: 400px;
+    }
+
+    .logo-footer {
+      margin-bottom: 30px;
+    }
+
+    .heart-footer {
+      display: flex;
+      justify-content: space-between;
+      max-width: 360px;
+      max-height: 20px;
+    }
+}
+
+.information-footer {
+    flex: 1;
+    max-width: 380px;
+}
+
+.links-footer {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+
+    .menu-footer {
+      display: flex;
+      position: relative;
+      top: -50px;
+      left: 150px;
+      gap: 20px;
+    }
+
+    .social-media-footer {
+      display: flex;
+      position: relative;
+      top: 80px;
+      left: 30px;
+      gap: 20px;
+    }
+}
+
