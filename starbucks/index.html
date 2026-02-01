@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarBucks</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="./src/images/logo-starbucks-icon.png" type="image/x-icon">
+</head>
+<body>
+                          <!-- HEADER -->
+
+    <header id="header">
+        <nav class="navbar">
+            <img src="./src/images/logo-starbucks.png" 
+            alt="StarBucks"
+            class="logo"
+            >
+
+            <button class="btn btn-mobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul id="nav-links">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#trending">Em alta</a>
+                </li>
+                <li>
+                    <a href="#about">Sobre nós</a>
+                </li>
+                <li>
+                    <a href="#products">Produtos</a>
+                </li>
+
+            </ul>
+            <a href="mailto:mainconfpss@gmail.com" class="btn btn-default">
+                Contatar
+            </a>
+            
+        </nav>
+    </header>
+                          <!-- MAIN -->
+
+    <main id="container">
+                          <!-- HOME -->
+        <section id="home">
+            <img 
+            src="./src/images/detail.png" 
+            alt="StarBucks Drinks"
+            class="home-image"
+            >
+            <h1 class="home-title">
+                Mais que café, uma 
+                <span>experiência</span>
+            </h1>
+
+            <p class="home-description">
+                Descubra cafés icônicos, sabores únicos e a energia
+                perfeita para cada parte do seu dia.
+            </p>
+
+            <div class="home-actions">
+                <a href="#" class="btn btn-default">
+                    Conhecer
+                </a>
+
+                <a href="#" class="btn btn-outlined">
+                    Contratar
+                </a>
+
+            </div>
+        </section>
+                          <!-- TRENDING -->
+
+        <section id="trending">
+            <h2 class="title">
+                Em alta
+            </h2>
+
+            <div class="trending-cards">
+                <div class="trending-card">
+                    <img 
+                        src="./src/images/trending/card1.png" 
+                        alt="StarBucks Cafe 1"
+                    >
+
+                    <div class="trending-rate">
+                        <p>
+                            4.9 <i class="fa-solid fa-star"></i>
+                            <!-- intendimento pq so pegou cor amarelo na estrela
+                            foi pq as configuracoes pegaram so o trending-rate
+                            e e o icone tava dentro da tag i ai dps so jogou 
+                            a cordentro dessa tag que tinha a estrela  -->
+                        </p>
+                    </div>
+
+                    <p class="trending-card-description">
+                        Frappuccino
+                        <span>Caramelo</span>
+                    </p>
+                </div>
+
+                <div class="trending-card">
+                    <img 
+                        src="./src/images/trending/card2.png" 
+                        alt="StarBucks Cafe 2"
+                    >
+
+                    <div class="trending-rate">
+                        <p>
+                            4.8 <i class="fa-solid fa-star"></i>
+                        </p>
+                    </div>
+
+                    <p class="trending-card-description">
+                        Frappuccino
+                        <span>Menta</span>
+                    </p>
+                </div>
+
+                <div class="trending-card">
+                    <img 
+                        src="./src/images/trending/card3.png" 
+                        alt="StarBucks Cafe 3"
+                    >
+
+                    <div class="trending-rate">
+                        <p>
+                            4.7 <i class="fa-solid fa-star"></i>
+                        </p>
+                    </div>
+
+                    <p class="trending-card-description">
+                        Frappuccino
+                        <span>Goiaba</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+                          <!-- ABOUT -->
+
+        <section id="about">
+            <h2 class="title">
+                Sobre nós
+            </h2>
+
+            <div class="about-content">
+                <img 
+                    src="./src/images/about/about-us.png" 
+                    alt="About Image"
+                    class="about-image"
+                    >
+
+                <div class="about-info">
+                    <h3>
+                        Nossa <span>História</span>
+                    </h3>
+
+                    <p>
+                        Desde o início, nossa paixão pelo café nos inspira
+                        a oferecer experiências únicas em cada xícara.
+                        Com <span>grãos selecionados</span> e preparo artesanal,
+                        buscamos unir qualidade, sabor e acolhimento em um 
+                        só lugar.Aqui, cada detalhe é pensado para transformar
+                        o seu momento de café em algo especial,
+                    </p>
+                </div>
+                    <div class="about-info">
+                    <h3>
+                        Nosso <span>Proposito</span>
+                    </h3>
+
+                    <p>
+                        Inspirar momentos de conexão e bem-estar por
+                        meio do café. Acreditamos que cada xícara pode
+                        aproximar pessoas, despertar ideias e transformar
+                        rotinas.<spans>Nosso compromissos</spans> e oferecer qualidade,
+                        sustentabilidade e experiências que tornem a seu
+                        dia mais leve e especial.
+                    </p>
+                </div>
+            </div>
+        </section>
+                          <!-- PRODUCTS -->
+
+        <section id="products">
+            <h2 class="title">
+                Produtos
+            </h2>
+
+            <div class="products-cards">
+                <div class="product-card">
+                    <img 
+                        src="./src/images/products/1.png" 
+                        alt="Product 1"
+                    >
+
+                    <div class="product-content">
+                        <h3>
+                            Moccha
+                            <span>Chocolate</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img 
+                        src="./src/images/products/2.png" 
+                        alt="Product 2"
+                    >
+
+                    <div class="product-content">
+                        <h3>
+                            Moccha
+                            <span>Morango</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img 
+                        src="./src/images/products/3.png" 
+                        alt="Product 3"
+                    >
+
+                    <div class="product-content">
+                        <h3>
+                            Moccha
+                            <span>Café</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img 
+                        src="./src/images/products/4.png" 
+                        alt="Product 4"
+                    >
+
+                    <div class="product-content">
+                        <h3>
+                            Moccha
+                            <span>Manga</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+                           <!-- FOOTER -->
+
+    <footer >
+        <p>
+            2k26 maiconfpss <i class="fa-regular fa-copyright"></i>
+            Copiado YT Larissa Kich
+        </p>
+    </footer>
+
+    <script src="./src/js/script.js"></script>
+    
+</body>
+</html>
