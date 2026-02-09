@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --texts: #ffffff;
+    --header: #2c3e50;
+    --fundo: #f5f5f5;
+    --buttons: #3498db;
+    --hovers: #2980b9;
+    --cards: #ffffff;
+    --footer: #34495e;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--fundo);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: var(--header);
+    min-height: 80px;
+}
+
+.menu {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--texts);
+    transition: 0.5s ease;
+}
+
+.menu a:hover {
+    color: var(--buttons);
+    text-decoration: underline;
+}
+
+.logo a {
+    font-family: "Iceland", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--texts);
+    text-decoration: none;
+    padding: 20px;
+    transition: 0.5s ease;
+    
+}
+
+.logo a:hover {
+    color: var(--buttons);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    min-height: calc(100vh - 80px);
+}
+
+.hero h1 {
+    font-family: "Iceland", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 65px;
+    font-weight: 600;
+    color: var(--header);
+}
+
+.hero p {
+    font-size: 16px;
+    text-align: center;
+    color: var(--header);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    height: 40px;
+    width: 130px;
+    background-color: var(--buttons);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.btn:hover {
+    background-color: var(--hovers);
+    color: var(--footer)
+}
+
+.btn a {
+    text-decoration: none;
+    color: var(--cards);
+}
+
+.beneficios {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--cards);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease;
+    min-width: 380px;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    background-color: var(--hovers);
+    color: var(--cards);
+}
+
+.card img {
+    width: 350px;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.card h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--header);
+    margin-bottom: 10px;
+}
+
+.title-beneficios {
+    font-family: "Iceland", sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--header);
+    margin-bottom: 60px;
+}
+
+footer {
+    background-color: var(--footer);
+    color: var(--cards);
+    padding: 30px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 16px;
+    
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--cards);
+}
+
+.social a:hover p {
+    color: var(--buttons);
+}
+
+.social a:hover img {
+    transform: scale(1.2);
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding-top: 30px;
+}
+
+.social p {
+    text-decoration: none;
+    color: var(--cards);
+    transition: 0.5s ease;
+}
+
+.social img {
+    width: 24px;
+    height: 24px;
+    transition: 0.5s ease;
+}
