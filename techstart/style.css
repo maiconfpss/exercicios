@@ -52,7 +52,7 @@ ul {
 
 .menu a:hover {
     color: var(--buttons);
-    text-decoration: underline;
+    
 }
 
 .logo a {
@@ -64,6 +64,14 @@ ul {
     padding: 20px;
     transition: 0.5s ease;
     
+}
+
+.menu li {
+    transition: 0.5s ease;
+}
+
+.menu li:hover {
+    transform: scale(1.2);
 }
 
 .logo a:hover {
