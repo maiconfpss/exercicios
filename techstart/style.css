@@ -28,6 +28,7 @@ header {
     align-items: center;
     background-color: var(--header);
     min-height: 80px;
+    width: 100%;
 }
 
 .menu {
@@ -223,4 +224,38 @@ footer a {
     width: 24px;
     height: 24px;
     transition: 0.5s ease;
+}
+
+@media (max-width: 768px) {
+
+    .menu {
+        display: none;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        margin: 0 30px;
+    }
+
+    .card {
+        min-width: auto;
+    }
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+        min-width: auto;
+    }
+    .hero-content {
+        order: 1;
+    }
+    .hero-image {
+        order: 2;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        margin: 20px 0 30px;
+    }
+    .hero-image img {
+        width: 100%;
+    }
 }
