@@ -533,11 +533,12 @@ body {
 /* Hover: borda animada com gradiente roxo */
 .project-card:hover {
     transform: translateY(-3px);
-    border-color: transparent;
-    background-color: #1d1d1d;
-    /* Borda gradiente roxo */
-    border-image: linear-gradient(135deg, #7b68a8 0%, #9b7fc9 50%, #7b68a8 100%) 1;
-    border-image-slice: 1;
+    
+    /* Solução: Borda transparente + Background Duplo (Clip) para respeitar o radius */
+    border: 1px solid transparent;
+    background-image: linear-gradient(#1d1d1d, #1d1d1d), linear-gradient(135deg, #7b68a8 0%, #9b7fc9 50%, #7b68a8 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
 
 .card-content {
