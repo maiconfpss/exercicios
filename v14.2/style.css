@@ -661,6 +661,12 @@ body {
     transform: scale(1.05);
 }
 
+.card-info p a {
+    color: #7b68a8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 
 /* Botão Ver Mais */
 .view-more-container {
