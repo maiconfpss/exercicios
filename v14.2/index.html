@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maicon | Desenvolvedor Front-end</title>
+    <!-- Link para o arquivo CSS de estilos -->
+    <link rel="stylesheet" href="style.css?v=14">
+    <!-- Fonte Inter do Google Fonts para uma tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones (Menu, GitHub, Link) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho (Header) contendo o logo e a navegação -->
+    <!-- Preloader Inject -->
+    <div id="preloader">
+        <div class="loader-content">
+            <span class="loader-text">maiconfpss</span>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo">maiconfpss</div>
+
+        <div class="nav-container">
+            <!-- Nav reordenada: Início, Projetos, Sobre, Habilidades (bate com a ordem do site) -->
+            <nav class="nav">
+                <a href="#home">Início</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#habilidades">Habilidades</a>
+            </nav>
+
+            <a href="#contato" class="btn-contato">Contato</a>
+
+            <!-- Botão do Menu Mobile (Hambúrguer) -->
+            <button class="mobile-menu-btn" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-menu-overlay">
+        <button class="close-menu-btn" aria-label="Fechar Menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- Nav mobile reordenada igual a desktop -->
+        <nav class="mobile-nav">
+            <a href="#home">Início</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </div>
+
+    <!-- Seção Principal (Hero) -->
+    <section id="home" class="hero">
+        <!-- A imagem de fundo será aplicada via CSS -->
+        <div class="hero-overlay"></div> <!-- Sobreposição escura para melhorar leitura -->
+        <!-- Camada de fade escuro para transição suave hero → próxima seção (animação JS do v10) -->
+        <div class="hero-fade-layer"></div>
+
+        <div class="hero-content">
+            <p class="subtitle">Aspirante a Desenvolvedor Front-end</p>
+            <h1 class="title">MAICON</h1>
+            <div class="divider">
+                <span class="line"></span>
+                <span class="text">Construindo e aprendendo todos os dias</span>
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            Role para baixo
+        </div>
+    </section>
+
+    <!-- Seção de Projetos (Estilo Pilha / iOS Recents) — Segundo no site, logo depois do Hero -->
+    <section id="projetos" class="projects-section">
+        <h2 class="section-title">Meus Projetos</h2>
+
+        <div class="projects-stack-container">
+
+            <!-- Card 1 -->
+            <div class="project-card" style="--i: 1;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image"
+                            style="background-image: url('https://placehold.co/600x400/111/FFF?text=Projeto+1');"></div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn-project"><i class="fas fa-external-link-alt"></i> Ver Projeto</a>
+                            <a href="#" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Projeto Alpha</h3>
+                        <p>Plataforma de alta performance para gestão de dados.</p>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="project-card" style="--i: 2;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image"
+                            style="background-image: url('https://placehold.co/600x400/222/FFF?text=Design+System');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn-project"><i class="fas fa-external-link-alt"></i> Ver Projeto</a>
+                            <a href="#" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Design System</h3>
+                        <p>Biblioteca de componentes reutilizáveis e acessíveis.</p>
+                        <div class="tech-tags">
+                            <span>React</span>
+                            <span>Styled Components</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="project-card" style="--i: 3;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image"
+                            style="background-image: url('https://placehold.co/600x400/333/FFF?text=E-commerce');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn-project"><i class="fas fa-external-link-alt"></i> Ver Projeto</a>
+                            <a href="#" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>E-commerce</h3>
+                        <p>Loja virtual completa com carrinho e checkout.</p>
+                        <div class="tech-tags">
+                            <span>Next.js</span>
+                            <span>Stripe</span>
+                            <span>Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="project-card" style="--i: 4;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image"
+                            style="background-image: url('https://placehold.co/600x400/444/FFF?text=Dashboard+AI');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn-project"><i class="fas fa-external-link-alt"></i> Ver Projeto</a>
+                            <a href="#" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>Dashboard AI</h3>
+                        <p>Painel de controle com análise preditiva de dados.</p>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botão Ver Mais Projetos (Isolado) -->
+        <div class="view-more-container">
+            <a href="https://github.com/maiconfpss" target="_blank" class="btn-view-more">
+                Ver Mais no GitHub <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre (About) -->
+    <section id="sobre" class="content-section">
+        <div class="container">
+            <h2 class="section-title reveal">Sobre Mim</h2>
+            <div class="about-content reveal">
+                <div class="about-text">
+                    <p>
+                        Olá! Sou um desenvolvedor apaixonado por criar experiências digitais únicas.
+                        Com foco em Front-end, busco sempre unir design e código para entregar interfaces
+                        que não são apenas funcionais, mas também visualmente impactantes.
+                    </p>
+                    <p>
+                        Estou sempre estudando novas tecnologias e aprimorando minhas habilidades
+                        para resolver problemas complexos com soluções simples e elegantes.
+                    </p>
+                </div>
+                <!-- Imagem de perfil na seção Sobre (image.png) -->
+                <div class="about-visual">
+                    <img src="image.png" alt="Foto de perfil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Habilidades (Skills) -->
+    <section id="habilidades" class="content-section">
+        <div class="container">
+            <h2 class="section-title reveal">Habilidades</h2>
+            <div class="skills-grid reveal">
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <span>CSS3 / SASS</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js skill-icon"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
+                    <span>React.js</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <span>Git / GitHub</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt skill-icon"></i>
+                    <span>Responsive</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="content-section footer-section">
+        <div class="container">
+            <h2 class="section-title reveal">Contato</h2>
+            <p class="reveal" style="margin-bottom: 40px; color: #ccc;">Sinta-se à vontade para entrar em contato para
+                parcerias ou
+                apenas dar um oi!</p>
+
+            <div class="contact-grid reveal">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>contato@exemplo.com</p>
+                    <a href="mailto:contato@exemplo.com">Enviar Mensagem</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>@maiconfpss</p>
+                    <a href="#">Conectar</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>@maiconfpss</p>
+                    <a href="#">Seguir</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>São Paulo, Brasil</p>
+                    <a href="#">Ver no Mapa</a>
+                </div>
+            </div>
+
+            <footer class="footer-copy">
+                &copy; 2026 Maicon. Todos os direitos reservados.
+            </footer>
+        </div>
+    </section>
+
+</body>
+
+</html>
