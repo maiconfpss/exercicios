@@ -221,6 +221,16 @@ body {
     letter-spacing: 1px;
 }
 
+.logo a {
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: color 0.3s;
+}
+
+.logo a:hover {
+    color: #9b7fc9;
+}
+
 .nav-container {
     display: flex;
     align-items: center;
