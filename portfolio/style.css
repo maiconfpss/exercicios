@@ -1511,6 +1511,17 @@ body {
 
 @media (max-width: 768px) {
 
+    /* Preloader Mobile */
+    .loader-text {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .loader-content {
+        padding: 0 30px;
+        width: 100%;
+    }
+
     /* Header Mobile Clean */
     .header {
         padding: 20px 30px;
