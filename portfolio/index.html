@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maicon | Desenvolvedor Front-end</title>
+    <!-- Link para o arquivo CSS de estilos -->
+    <link rel="stylesheet" href="style.css?v=15.6">
+    <link rel="shortcut icon" href="favicon-im.png" type="image/x-icon">
+    <!-- Fonte Inter do Google Fonts para uma tipografia moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones (Menu, GitHub, Link) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho (Header) contendo o logo e a navegação -->
+    <!-- Preloader Inject -->
+    <div id="preloader">
+        <div class="loader-content">
+            <span class="loader-text">maiconfpss</span>
+        </div>
+    </div>
+
+    <!-- Linha de progresso de leitura -->
+    <div id="scroll-line"></div>
+
+    <header class="header">
+        <div class="logo"><a href="#home">maiconfpss</a></div>
+
+        <div class="nav-container">
+            <!-- Nav reordenada: Início, Projetos, Sobre, Habilidades (bate com a ordem do site) -->
+            <nav class="nav">
+                <a href="#home" data-i18n="nav_home">Início</a>
+                <a href="#projetos" data-i18n="nav_projects">Projetos</a>
+                <a href="#sobre" data-i18n="nav_about">Sobre</a>
+                <a href="#habilidades" data-i18n="nav_skills">Habilidades</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="lang-toggle" class="btn-lang" aria-label="Alterar Idioma">
+                    <span class="active-lang">PT</span><span class="lang-divider"></span><span>EN</span>
+                </button>
+                <button id="theme-toggle" class="header-btn" aria-label="Alternar Tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contato" class="btn-contato" data-i18n="nav_contact">Contato</a>
+            </div>
+
+            <!-- Botão do Menu Mobile (Hambúrguer) -->
+            <button class="mobile-menu-btn" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <button class="close-menu-btn" aria-label="Fechar Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="mobile-nav">
+            <a href="#home" data-i18n="nav_home">Início</a>
+            <a href="#projetos" data-i18n="nav_projects">Projetos</a>
+            <a href="#sobre" data-i18n="nav_about">Sobre</a>
+            <a href="#habilidades" data-i18n="nav_skills">Habilidades</a>
+            <a href="#contato" data-i18n="nav_contact">Contato</a>
+        </nav>
+
+        <div class="mobile-menu-footer">
+            <div class="mobile-controls">
+                <button id="theme-toggle-mobile" class="mobile-control-btn">
+                    <i class="fas fa-moon"></i> <span data-i18n="theme_label">Tema</span>
+                </button>
+                <button id="lang-toggle-mobile" class="mobile-control-btn btn-lang">
+                    <i class="fas fa-language"></i> <span class="active-lang">PT</span> | <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção Principal (Hero) -->
+    <section id="home" class="hero">
+        <!-- A imagem de fundo será aplicada via CSS -->
+        <div class="hero-overlay"></div> <!-- Sobreposição escura para melhorar leitura -->
+        <!-- Camada de fade escuro para transição suave hero → próxima seção (animação JS do v10) -->
+        <div class="hero-fade-layer"></div>
+        <!-- Canvas Partículas (Inserido com Cuidado) -->
+        <canvas id="hero-particles"></canvas>
+
+
+        <div class="hero-content">
+            <p class="subtitle" data-i18n="hero_subtitle">Aspirante a Desenvolvedor Front-end</p>
+            <h1 class="title">MAICON</h1>
+            <div class="divider">
+                <span class="line"></span>
+                <span class="text" data-i18n="hero_divider">Construindo e aprendendo todos os dias</span>
+                <span class="line"></span>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" data-i18n="hero_scroll">
+            Role para baixo
+        </div>
+    </section>
+
+    <!-- Seção de Projetos (Estilo Pilha / iOS Recents) — Segundo no site, logo depois do Hero -->
+    <section id="projetos" class="projects-section">
+        <h2 class="section-title" data-i18n="projects_title">Meus Projetos</h2>
+
+        <div class="projects-stack-container">
+
+            <!-- Card 1 -->
+            <div class="project-card" style="--i: 1;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image" style="background-image: url(./projects-img/star-bucks.png);"></div>
+                        <div class="project-overlay">
+                            <a href="https://maiconfpss.github.io/exercicios/starbucks/" target="_blank"
+                                class="btn-project" data-i18n="view_project"><i class="fas fa-external-link-alt"></i>
+                                Ver Projeto</a>
+                            <a href="https://github.com/maiconfpss/exercicios/tree/main/starbucks" target="_blank"
+                                class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 data-i18n="project1_title">Projeto Star Bucks</h3>
+                        <p data-i18n="project1_desc">Projeto feito YT <a href="https://www.youtube.com/@larissakich"
+                                target="_blank">Larissa
+                                Kich</a>.</p>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="project-card" style="--i: 2;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image" style="background-image: url('./projects-img/faster-ui.png');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://maiconfpss.github.io/exercicios/faster-ui/" target="_blank"
+                                class="btn-project" data-i18n="view_project"><i class="fas fa-external-link-alt"></i>
+                                Ver Projeto</a>
+                            <a href="https://github.com/maiconfpss/exercicios/tree/main/faster-ui" target="_blank"
+                                class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 data-i18n="project2_title">Projeto Faster UI</h3>
+                        <p data-i18n="project2_desc">Projeto qualquer feito do figma.</p>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="project-card" style="--i: 3;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image" style="background-image: url('./projects-img/techstart.png');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://maiconfpss.github.io/exercicios/techstart/" target="_blank"
+                                class="btn-project" data-i18n="view_project"><i class="fas fa-external-link-alt"></i>
+                                Ver Projeto</a>
+                            <a href="https://github.com/maiconfpss/exercicios/tree/main/techstart" target="_blank"
+                                class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 data-i18n="project3_title">Tech Start</h3>
+                        <p data-i18n="project3_desc">Projecto pededio pro <a href="https://claude.ai/"
+                                target="_blank">Claude AI</a>.</p>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="project-card" style="--i: 4;">
+                <div class="card-content">
+                    <div class="card-image-wrapper">
+                        <div class="card-image"
+                            style="background-image: url('https://placehold.co/600x400/444/FFF?text=Project+Future');">
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="btn-project" data-i18n="view_project"><i
+                                    class="fas fa-external-link-alt"></i> Ver Projeto</a>
+                            <a href="#" class="btn-github"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 data-i18n="project4_title">Projeto Future</h3>
+                        <p data-i18n="project4_desc">Aqui apenas pra completar o grid.</p>
+                        <div class="tech-tags">
+                            <span>Ola 👋🏼</span>
+                            <span>Tudo Bem?</span>
+                            <span>👋🏼</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botão Ver Mais Projetos (Isolado) -->
+        <div class="view-more-container">
+            <a href="https://github.com/maiconfpss" target="_blank" class="btn-view-more" data-i18n="view_more_github">
+                Ver Mais no GitHub <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre (About) -->
+    <section id="sobre" class="content-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-i18n="about_title">Sobre Mim</h2>
+            <div class="about-content reveal">
+                <div class="about-text">
+                    <p data-i18n="about_p1">
+                        Olá! Sou um desenvolvedor apaixonado por criar experiências digitais únicas.
+                        Com foco em Front-end, busco sempre unir design e código para entregar interfaces
+                        que não são apenas funcionais, mas também visualmente impactantes.
+                    </p>
+                    <p data-i18n="about_p2">
+                        Estou sempre estudando novas tecnologias e aprimorando minhas habilidades
+                        para resolver problemas complexos com soluções simples e elegantes.
+                    </p>
+                </div>
+                <!-- Imagem de perfil na seção Sobre (image.png) -->
+                <div class="about-visual">
+                    <img src="image.png" alt="Foto de perfil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Habilidades (Skills) -->
+    <section id="habilidades" class="content-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-i18n="skills_title">Habilidades</h2>
+            <div class="skills-grid reveal">
+                <div class="skill-card skill-html">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-card skill-css">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="skill-card skill-js">
+                    <i class="fab fa-js skill-icon"></i>
+                    <span data-i18n="skill_js_next">JavaScript Proximo</span>
+                </div>
+                <!-- <div class="skill-card">
+                    <i class="fab fa-react skill-icon"></i>
+                    <span>React.js</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <span>Git / GitHub</span>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt skill-icon"></i>
+                    <span>Responsive</span>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="content-section footer-section">
+        <div class="container">
+            <h2 class="section-title reveal" data-i18n="contact_title">Contato</h2>
+            <!-- <p class="reveal" style="margin-bottom: 40px; color: #ccc;">Sinta-se à vontade para entrar em contato para
+                parcerias ou
+                apenas dar um oi!</p> -->
+            <!-- Instagram movido para dentro do grid abaixo -->
+            <div class="contact-grid reveal">
+                <div class="contact-card instagram-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@maiconfpss</p>
+                    <a href="https://instagram.com/maiconfpss" target="_blank" data-i18n="contact_instagram">Chamar no
+                        Direct</a>
+                </div>
+                <div class="contact-card email-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3 data-i18n="contact_email_title">Email</h3>
+                    <p>contato-maiconfpss@gmail.com</p>
+                    <a href="mailto:maiconfpss@gmail.com" data-i18n="contact_email_btn">Enviar Email</a>
+                </div>
+                <!--  <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>@maiconfpss</p>
+                    <a href="#">Conectar</a>
+                </div> -->
+
+                <div class="contact-card github-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>@maiconfpss</p>
+                    <a href="https://github.com/maiconfpss" target="_blank" data-i18n="view_project">Ver Projetos</a>
+                </div>
+                <div class="contact-card map-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3 data-i18n="contact_map_title">Localização</h3>
+                    <p data-i18n="contact_map_desc">Mulungu do Morro - Bahia, Brasil</p>
+                    <a href="https://maps.google.com/?q=Mulungu+do+Morro+Bahia" target="_blank"
+                        data-i18n="contact_map_btn">Abrir Mapa</a>
+                </div>
+            </div>
+
+            <footer class="footer-copy" data-i18n="footer_copy">
+                &copy; 2k26 maiconfpss. Todos os direitos reservados.
+            </footer>
+        </div>
+    </section>
+
+</body>
+
+</html>

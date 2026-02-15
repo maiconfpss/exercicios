@@ -1,0 +1,1646 @@
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+:root {
+    /* --- TEMA ESCURO (Padrão) --- */
+    --bg-color: #0d0d0d;
+    --bg-card: #161616;
+    --text-color: #ffffff;
+    --text-secondary: #aaaaaa;
+    --accent-color: #7b68a8;
+    --accent-hover: #6a5695;
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --nav-bg: rgba(0, 0, 0, 0.9);
+    --nav-scrolled: rgba(13, 13, 13, 0.95);
+    --js-color: #F7DF1E;
+
+    /* Gradientes e Hovers */
+    --gradient-main: linear-gradient(135deg, #7b68a8 0%, #9b7fc9 100%);
+    --card-hover-bg: linear-gradient(135deg, #1a1a1a 0%, #1f1f1f 100%);
+    --overlay-bg: rgba(0, 0, 0, 0.7);
+    --header-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+}
+
+/* --- TEMA CLARO (.light-mode) --- */
+body.light-mode {
+    --bg-color: #f5f7fa;
+    --bg-card: #ffffff;
+    --text-color: #1a1a1b;
+    --text-secondary: #5a5a5a;
+    --accent-color: #7b68a8;
+    --accent-hover: #5a4a82;
+    --border-color: rgba(123, 104, 168, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --nav-bg: rgba(245, 247, 250, 0.95);
+    --nav-scrolled: rgba(255, 255, 255, 0.98);
+    --js-color: #d4ac0d;
+
+    /* Hovers Tema Claro */
+    --card-hover-bg: #ffffff;
+    --overlay-bg: rgba(0, 0, 0, 0.4);
+    /* Overlay escuro para não estourar no modo claro */
+    --header-gradient: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   PRELOADER
+   ========================================= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Transição: fade out simples tipo Netflix (rápido e limpo) */
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+.loader-content {
+    text-align: center;
+    position: relative;
+}
+
+/* Efeito de brilho de fundo atrás do texto */
+.loader-content::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(123, 104, 168, 0.2) 0%, transparent 70%);
+    animation: pulse-glow 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Partículas flutuantes roxas */
+.loader-content::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image:
+        radial-gradient(circle, rgba(123, 104, 168, 0.3) 2px, transparent 2px),
+        radial-gradient(circle, rgba(123, 104, 168, 0.2) 1px, transparent 1px),
+        radial-gradient(circle, rgba(123, 104, 168, 0.15) 1.5px, transparent 1.5px);
+    background-size: 50px 50px, 80px 80px, 40px 40px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: float-particles 20s linear infinite;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+@keyframes float-particles {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+.loader-text {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    /* Pequena margem entre as letras */
+    background: linear-gradient(135deg, #ffffff 0%, #b8a5d9 50%, #7b68a8 100%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.05em;
+    /* Animações: entrada suave + gradiente animado + respiração */
+    animation:
+        fade-in-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) both,
+        gradient-shift 4s ease-in-out infinite,
+        gentle-breathe 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(123, 104, 168, 0.4));
+}
+
+/* Entrada ultra suave com movimento vertical */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        letter-spacing: -0.1em;
+    }
+
+    60% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        letter-spacing: 0.05em;
+    }
+}
+
+/* Gradiente desliza suavemente */
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Respiração sutil (scale muito leve) */
+@keyframes gentle-breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Saída tipo Netflix: fade out rápido e simples */
+#preloader.hide-preloader {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================
+   SCROLL REVEAL
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MENU ATIVO */
+.nav a.active {
+    color: var(--accent-color);
+}
+
+.nav a.active::after {
+    width: 100%;
+}
+
+/* =========================================
+   HEADER (CABEÇALHO)
+   ========================================= */
+#scroll-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--accent-color);
+    z-index: 2000;
+    transition: width 0.1s linear;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 60px;
+    /* Mais respiro lateral e vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: var(--header-gradient);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header.scrolled {
+    background: var(--nav-scrolled);
+    padding: 15px 60px;
+    box-shadow: 0 5px 25px var(--shadow-color);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 0 15px rgba(123, 104, 168, 0.4);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    /* Mais respiro entre nav e ações */
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    /* Mais conciso */
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    /* Branco suave apenas no topo do hero */
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.header.scrolled .nav a {
+    color: var(--text-color);
+    opacity: 1;
+}
+
+.nav a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #7b68a8;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Grupo de Ações (Desktop Pill) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    background: rgba(123, 104, 168, 0.05);
+    /* Fundo sutil */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    padding: 4px;
+    /* Espaçamento interno da cápsula */
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.header-actions:hover {
+    border-color: var(--accent-color);
+    background: rgba(123, 104, 168, 0.1);
+}
+
+#theme-toggle {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* --- Lógica de Estilo do Sol --- */
+
+.sun-theme i {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sun-theme:hover i {
+    transform: rotate(90deg);
+    /* Girada básica no hover */
+}
+
+/* Animação de Giro ao Clicar (Gira 1 vez e para) */
+@keyframes theme-click-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.theme-click-anim {
+    animation: theme-click-spin 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* --- Lógica da Lua (Estática e Realista) --- */
+.moon-theme i {
+    transform: rotate(-15deg);
+    /* Inclinação lunar */
+    font-size: 1.3rem;
+    /* Lua mais imponente */
+    filter: drop-shadow(0 0 5px rgba(123, 104, 168, 0.6));
+    /* Brilho mais forte */
+    transition: all 0.4s ease;
+}
+
+.moon-theme:hover i {
+    transform: rotate(0deg) scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(123, 104, 168, 0.8));
+}
+
+.header.scrolled #theme-toggle {
+    color: var(--text-color);
+}
+
+.btn-contato {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0 22px;
+    height: 38px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-contato:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Botão de Idioma (Desktop) */
+.btn-lang {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px 0 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    /* Ultra suave */
+    transition: all 0.3s ease;
+}
+
+.header.scrolled .btn-lang {
+    color: var(--text-color);
+    border-right-color: rgba(123, 104, 168, 0.05);
+    /* Ultra suave */
+}
+
+.btn-lang span {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.btn-lang span.active-lang {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+/* Divisor Interno (PT | EN) - Agora Ultra Fino */
+.lang-divider {
+    width: 1px;
+    height: 12px;
+    background-color: currentColor;
+    opacity: 0.15;
+    margin: 0 8px;
+    display: inline-block;
+}
+
+/* Botão de Tema (Desktop) */
+.header-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 5px 15px;
+    transition: color 0.3s ease;
+}
+
+.header.scrolled .header-btn {
+    color: var(--text-color);
+}
+
+.header-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Animação de Troca de Idioma */
+.lang-fade {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* --- Menu Mobile Premium (v16) --- */
+.mobile-menu-btn {
+    display: none;
+    /* Oculto por padrão (Desktop) */
+    background: none;
+    border: none;
+    color: #ffffff;
+    /* Branco no Hero */
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 2001;
+    transition: all 0.3s ease;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.header.scrolled .mobile-menu-btn {
+    color: var(--text-color);
+    /* Cor do tema no scroll */
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.mobile-menu-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    /* Alinhado com a altura do header mobile */
+    padding: 0 30px;
+    /* Mesmo padding do header mobile */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.close-menu-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    /* Sincronizado com Hambúrguer */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.3s;
+}
+
+.close-menu-btn:hover {
+    transform: rotate(90deg);
+    color: var(--accent-color);
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    transform: translateY(30px);
+    opacity: 0;
+}
+
+.mobile-menu-overlay.active .mobile-nav a {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Efeito Stagger (Links aparecem um por um) */
+.mobile-nav a:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.mobile-nav a:nth-child(2) {
+    transition-delay: 0.15s;
+}
+
+.mobile-nav a:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.mobile-nav a:nth-child(4) {
+    transition-delay: 0.25s;
+}
+
+.mobile-nav a:nth-child(5) {
+    transition-delay: 0.3s;
+}
+
+.mobile-menu-footer {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.mobile-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    border-top: none;
+    /* Removido pauzinho cinza */
+    padding-top: 10px;
+}
+
+.mobile-control-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    min-width: 180px;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.mobile-control-btn i {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+.mobile-control-btn:active {
+    transform: scale(0.95);
+    background: var(--accent-color);
+    color: white;
+}
+
+.mobile-control-btn i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+
+/* =========================================
+   SEÇÃO HERO
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    padding-bottom: 15vh;
+    background-image: url('girl-capuz-preto-quadrada.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    /* Hint de parallax pra performance */
+    will-change: transform;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-fade-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+    margin-bottom: 0;
+    will-change: transform, opacity;
+}
+
+/* Partículas (Inserido com Cuidado) */
+#hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #bbbbbb;
+    /* Mantem claro no hero escuro */
+    letter-spacing: 2px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    background: linear-gradient(180deg, #ffffff 20%, transparent 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #888;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.divider .line {
+    width: 60px;
+    height: 1px;
+    background-color: #555;
+    display: block;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    /* Animação de bounce melhorada com escala */
+    animation: bounce-improved 2s ease-in-out infinite;
+    z-index: 3;
+    opacity: 0.8;
+}
+
+/* Bounce melhorado com escala sutil */
+@keyframes bounce-improved {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-12px) scale(1.05);
+        opacity: 1;
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-6px) scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================
+   SEÇÃO DE PROJETOS
+   ========================================= */
+.projects-section {
+    padding: 100px 0 20px 0;
+    /* Padding reduzido drasticamente no bottom */
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 60px;
+    text-align: center;
+    background: linear-gradient(to right, var(--text-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.projects-stack-container {
+    width: 90%;
+    max-width: 1000px;
+    position: relative;
+    /* Remover padding bottom extra se houver */
+    padding-bottom: 0;
+}
+
+.project-card {
+    transition: none !important;
+    /* FORÇA BRUTA: Impede qualquer pisca-pisca do JS */
+    position: sticky;
+    /* PC: Empilhamento Visível */
+    top: calc(130px + (var(--i) * 20px));
+
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    margin-bottom: 80px;
+    overflow: hidden;
+
+    /* Sombra sutil que se adapta ao tema */
+    box-shadow: 0 10px 30px var(--shadow-color);
+
+    /* Borda sutil */
+    border: 1px solid var(--border-color);
+
+    /* Transição suave */
+    transition: border-color 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+
+    /* PC: Layout Horizontal Lado a Lado */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 75vh;
+    /* Altura fixa no PC também */
+}
+
+/* Hover: borda animada com gradiente roxo */
+.project-card:hover {
+    transform: translateY(-3px);
+
+    /* Solução: Borda transparente + Background Duplo (Clip) para respeitar o radius */
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--bg-card), var(--bg-card)), linear-gradient(135deg, var(--accent-color) 0%, #9b7fc9 50%, var(--accent-color) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    -webkit-background-clip: padding-box, border-box;
+}
+
+.project-card:hover .card-info {
+    background-color: transparent;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+/* PC: Imagem */
+.card-image-wrapper {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay no PC: Hover */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-image-wrapper:hover .project-overlay {
+    opacity: 1;
+}
+
+.card-image-wrapper:hover .card-image {
+    transform: scale(1.1);
+}
+
+/* PC: Info */
+.card-info {
+    width: 50%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-card);
+}
+
+.card-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.card-info p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-tags span {
+    background-color: rgba(123, 104, 168, 0.1);
+    color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(123, 104, 168, 0.2);
+    font-weight: 500;
+}
+
+.project-overlay a {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.3s;
+    width: 180px;
+    justify-content: center;
+}
+
+.btn-project {
+    background-color: #7b68a8;
+    color: white;
+}
+
+.btn-project:hover {
+    background-color: #6a5695;
+    transform: scale(1.05);
+}
+
+.btn-github {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Vidro sutil para não sobrepor texto */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borda mais fina e clara */
+    color: #ffffff;
+    /* Sempre branco no overlay */
+}
+
+.btn-github:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    transform: scale(1.05);
+}
+
+.card-info p a {
+    color: #7b68a8;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* Botão Ver Mais */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* Reduzido o espaço abaixo */
+    position: relative;
+    z-index: 10;
+}
+
+.btn-view-more {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-view-more:hover {
+    background: var(--accent-color);
+    color: var(--bg-card);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(123, 104, 168, 0.4);
+}
+
+/* =========================================
+   Habilidades & Outros
+   ========================================= */
+.content-section {
+    padding: 80px 50px;
+    /* Padding reduzido para aproximar do botão ver mais */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Sobre */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Sobre — Container visual */
+.about-visual {
+    flex: 1;
+    height: 400px;
+    background: linear-gradient(45deg, var(--bg-card), var(--bg-color));
+    border-right: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    border-radius: 20px;
+    overflow: hidden;
+    /* Para a img respeitar o border-radius */
+
+    /* Novo Efeito: Glow Pulsante (Passo 3) */
+    box-shadow: 0 0 20px rgba(123, 104, 168, 0.3);
+    animation: profile-glow 3s ease-in-out infinite;
+}
+
+@keyframes profile-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(123, 104, 168, 0.3);
+        border-color: #7b68a8;
+    }
+
+    50% {
+        box-shadow: 0 0 45px rgba(123, 104, 168, 0.6);
+        border-color: #a58bd3;
+    }
+}
+
+/* Sobre — Imagem de perfil dentro do container */
+.about-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.skill-card {
+    background: var(--bg-card);
+    padding: 40px 20px;
+    border-radius: 16px;
+    text-align: center;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    cursor: pointer;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(123, 104, 168, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 12px 35px var(--shadow-color),
+        0 0 30px rgba(123, 104, 168, 0.15);
+    background: var(--card-hover-bg);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    color: #7b68a8;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--accent-color);
+}
+
+.skill-card span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    z-index: 1;
+}
+
+/* --- Cores das Habilidades (Hover) --- */
+
+/* HTML5 - Laranja (#E34F26) */
+.skill-html:hover {
+    border-color: #E34F26;
+    box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(227, 79, 38, 0.2);
+}
+
+.skill-html:hover .skill-icon {
+    color: #E34F26;
+}
+
+/* CSS3 - Azul (#1572B6) */
+.skill-css:hover {
+    border-color: #1572B6;
+    box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(21, 114, 182, 0.2);
+}
+
+.skill-css:hover .skill-icon {
+    color: #1572B6;
+}
+
+/* JavaScript - Amarelo (#F7DF1E) */
+.skill-js:hover {
+    border-color: var(--js-color);
+    box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(247, 223, 30, 0.1);
+}
+
+.skill-js:hover .skill-icon {
+    color: var(--js-color);
+}
+
+
+/* =========================================
+   CONTATO
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+/* Contatos */
+.contact-card {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    /* CORRIGIDO: Mesma transição das skills (Bouncy/Subidinha) */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    /* Garante que os cantos arredondados funcionem com borda */
+    cursor: pointer;
+}
+
+/* Glow Effect (Igual Skills) */
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(123, 104, 168, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+    /* Fica atrás do conteúdo */
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+/* Conteúdo deve ficar acima do Glow */
+.contact-card i,
+.contact-card h3,
+.contact-card p,
+.contact-card a {
+    z-index: 1;
+    position: relative;
+}
+
+/* ALTA ESPECIFICIDADE: Garante que o hover vença a regra de animação cascata */
+.contact-card:hover,
+.contact-grid.active .contact-card:hover {
+    border-color: #7b68a8;
+    /* Cor base, sobrescrita pelas específicas */
+    transform: translateY(-12px) scale(1.02) !important;
+    /* Ajustado para IDÊNTICO às skills (-12px scale 1.02) */
+
+    /* Background Gradient Igual Skills */
+    background: var(--card-hover-bg);
+
+    /* Sombra Igual Skills (ajustada para roxo base) */
+    box-shadow: 0 12px 35px var(--shadow-color),
+        0 0 30px rgba(123, 104, 168, 0.15);
+
+    z-index: 10;
+    transition-delay: 0s !important;
+}
+
+.contact-card i {
+    font-size: 2.5rem;
+    color: #7b68a8;
+    margin-bottom: 10px;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Botões Estilo Pílula */
+.contact-card a {
+    margin-top: auto;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    /* Design do Botão */
+    padding: 10px 25px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+
+    /* Flex */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+/* Button Hover Geral */
+.contact-card:hover a {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* Exceções de cores de botão (Preenchimento com Marca) */
+/* Exceções de cores de botão (Preenchimento com Marca) */
+/* Instagram */
+.instagram-card:hover a {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+    color: white;
+    /* Texto branco no fundo colorido */
+}
+
+.instagram-card:hover i {
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Email */
+.email-card:hover a {
+    background: #EA4335;
+    border-color: #EA4335;
+    color: white;
+}
+
+.email-card:hover i {
+    color: #EA4335;
+    transform: scale(1.2) rotate(-5deg);
+    text-shadow: 0 0 10px rgba(234, 67, 53, 0.4);
+}
+
+/* GitHub */
+.github-card:hover a {
+    background: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.github-card:hover i {
+    color: var(--text-color);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Mapa */
+.map-card:hover a {
+    background: #34A853;
+    border-color: #34A853;
+    color: white;
+}
+
+.map-card:hover i {
+    color: #34A853;
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(52, 168, 83, 0.4);
+}
+
+/* Mobile Touch Fix: Garante que o toque ative o efeito em todos os cards */
+.contact-card:active {
+    transform: translateY(-15px) scale(1.03);
+    z-index: 100;
+    /* Z-index altíssimo ao tocar */
+}
+
+/* Animação Cascata (Grid) */
+.contact-grid.active .contact-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays escalonados */
+.contact-grid.active .contact-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.contact-grid.active .contact-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.contact-grid.active .contact-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.contact-grid.active .contact-card:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.footer-copy {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE FIRST)
+   ========================================= */
+@media (max-width: 900px) {
+    .project-card {
+        flex-direction: column;
+    }
+
+    .card-content {
+        flex-direction: column;
+    }
+
+    .card-image-wrapper,
+    .card-info {
+        width: 100%;
+    }
+
+    .card-image-wrapper {
+        height: 250px;
+    }
+
+    /* Remover altura fixa para tablet para evitar bugs */
+    .project-card {
+        height: auto;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Header Mobile Clean */
+    .header {
+        padding: 20px 30px;
+        background: transparent;
+        backdrop-filter: none;
+    }
+
+    .header.scrolled {
+        background: var(--nav-bg);
+        backdrop-filter: blur(10px);
+        padding: 15px 30px;
+    }
+
+    .nav,
+    .header-actions {
+        display: none !important;
+        /* Esconde TUDO no mobile */
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        /* Garante que apenas ele apareça */
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    /* Hero */
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    /* Projetos */
+    .projects-stack-container {
+        width: 95%;
+    }
+
+    .project-card {
+        /* Lógica de Empilhamento (Stacking) */
+        position: sticky;
+        /* Mobile: 120px para garantir que saia de baixo da Navbar + Empilhamento maior */
+        top: calc(120px + (var(--i) * 20px));
+        /* Cada card fica um pouco mais baixo */
+
+        margin-bottom: 25px;
+        /* IMPORTANTE: Flexbox para ocupar altura toda */
+        height: 70vh;
+        /* Reduzido de 80vh para 70vh (Menos espaço) */
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex: 1;
+    }
+
+    /* Solução para a imagem sumir: Usar flex-grow */
+    .card-image-wrapper {
+        width: 100%;
+        height: auto;
+        flex: 1.5;
+        /* Ocupa 1.5 partes do espaço (60%) */
+    }
+
+    .card-info {
+        width: 100%;
+        height: auto;
+        flex: 1;
+        /* Ocupa 1 parte do espaço (40%) */
+        padding: 25px 20px;
+        justify-content: center;
+        /* Centraliza verticalmente */
+        gap: 10px;
+        /* Distribui melhor */
+    }
+
+    .card-info h3 {
+        font-size: 1.6rem;
+        /* Aumentado */
+        margin-bottom: 0;
+    }
+
+    .card-info p {
+        font-size: 1rem;
+        /* Aumentado */
+        margin-bottom: 0;
+        /* Corte de Texto para caber */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .tech-tags {
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    .tech-tags span {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    /* Botão Ver Mais - Colado */
+    .view-more-container {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    /* Overlay no Mobile - Exibido ao Toque */
+    .project-overlay {
+        opacity: 0;
+    }
+
+    .card-image-wrapper:active .project-overlay {
+        opacity: 1;
+    }
+
+    /* Geral */
+    .content-section {
+        padding: 40px 20px;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-visual {
+        width: 100%;
+        height: 250px;
+    }
+}

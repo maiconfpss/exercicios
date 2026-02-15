@@ -1,0 +1,15 @@
+
+*/ 
+
+
+Variaveis 
+
+    - let   -> Pode alterar o valor quando quiser.
+
+    - const -> valor NAO pode ser declarado novamente.
+
+    - var   -> DESCONTINUADO / NAO USAR.
+
+
+Tbm quando for por algo dentro de () se colocar ('txt') fica como text o txt que colocar, e se colocar sem (.div) procura
+no codigo tipo uma variavel uma div id e tals.
