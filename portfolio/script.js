@@ -297,6 +297,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav a');
     const projectCards = document.querySelectorAll('.project-card');
+    const skillCards = document.querySelectorAll('.skill-card');
+    const contactCards = document.querySelectorAll('.contact-card');
     const scrollLine = document.getElementById('scroll-line');
 
     let ticking = false;
@@ -340,48 +342,81 @@ document.addEventListener('DOMContentLoaded', () => {
             heroFadeLayer.style.opacity = fadeOpacity;
         }
 
-        // 3. Efeito Pilha 3D (Scale) - AQUI OCORRIA A TREMEDEIRA
-        projectCards.forEach((card, index) => {
-            // Obter estilo computado é caro, ideal seria cachear, mas o top muda com media query.
-            // Assumimos valores fixos baseados na lógica do CSS para performance.
-            // Mobile: 120px + i*20 | PC: 130px + i*20
+        // 3. Efeito Pilha 3D (Scale Only no Scroll)
+        const isMobile = window.innerWidth <= 900;
 
-            // Deteção simples de "PC vs Mobile" pela largura
-            const isMobile = window.innerWidth <= 900;
+        projectCards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
             const baseTop = isMobile ? 120 : 130;
             const stickyValue = baseTop + (index * 20);
 
-            const rect = card.getBoundingClientRect();
-
-            // card.offsetTop não serve pois é relativo ao parent.
-            // rect.top é relativo à viewport.
-
             if (rect.top <= stickyValue + 2) {
-                // Card Travado
                 const nextCard = projectCards[index + 1];
                 if (nextCard) {
                     const nextRect = nextCard.getBoundingClientRect();
                     const distanceTotal = windowHeight - stickyValue;
                     const distanceCurrent = nextRect.top - stickyValue;
-
-                    let progress = distanceCurrent / distanceTotal;
-                    progress = Math.max(0, Math.min(1, progress));
-
-                    const targetScale = 0.93;
-                    const currentScale = targetScale + ((1 - targetScale) * progress);
-
-                    // Aplicar transform (sem brightness pra evitar escurecimento estranho)
-                    card.style.transform = `scale(${currentScale})`;
+                    let progress = Math.max(0, Math.min(1, distanceCurrent / distanceTotal));
+                    card.style.transform = `scale(${0.93 + (0.07 * progress)})`;
                 }
             } else {
-                // Reset
                 card.style.transform = 'scale(1)';
             }
         });
 
+        // 4. AUTO SELECTOR (Seleção Automática no Scroll)
+        if (isMobile) {
+            // Função genérica para focar no card mais central da seção
+            const autoSelectInRange = (cards, sectionId) => {
+                const section = document.getElementById(sectionId);
+                if (!section) return;
+
+                const sectionRect = section.getBoundingClientRect();
+                if (sectionRect.top < windowHeight && sectionRect.bottom > 100) {
+                    const focusPoint = windowHeight * 0.5;
+                    let selected = null;
+
+                    // Para Projetos (Stack), usamos a lógica de Topo (Inversa)
+                    if (sectionId === 'projetos') {
+                        for (let i = cards.length - 1; i >= 0; i--) {
+                            if (cards[i].getBoundingClientRect().top <= focusPoint) {
+                                selected = cards[i];
+                                break;
+                            }
+                        }
+                    } else {
+                        // Para Skills e Contatos (Grid), usamos Proximidade do Centro
+                        let minDistance = Infinity;
+                        cards.forEach(card => {
+                            const rect = card.getBoundingClientRect();
+                            const cardMid = rect.top + (rect.height / 2);
+                            const distance = Math.abs(cardMid - focusPoint);
+                            if (distance < minDistance) {
+                                minDistance = distance;
+                                selected = card;
+                            }
+                        });
+                    }
+
+                    if (selected && !selected.classList.contains('selected')) {
+                        cards.forEach(c => c.classList.remove('selected'));
+                        selected.classList.add('selected');
+                    }
+                } else {
+                    cards.forEach(c => c.classList.remove('selected'));
+                }
+            };
+
+            autoSelectInRange(projectCards, 'projetos');
+            autoSelectInRange(skillCards, 'habilidades');
+            autoSelectInRange(contactCards, 'contato');
+        }
+
+
         ticking = false;
     }
 
+    // Listener de Scroll Otimizado
     window.addEventListener('scroll', () => {
         if (!ticking) {
             window.requestAnimationFrame(updateScroll);
@@ -389,9 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Observers (Eles já são otimizados pelo navegador, mantém separados fora do loop de scroll)
-
-    // Scroll Reveal Observer
+    // 4. Observers (Navegação Dinâmica)
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -401,7 +434,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // Active Menu Observer
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -414,7 +446,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.15 });
     sections.forEach(sec => sectionObserver.observe(sec));
 
-    // Chama uma vez para configurar estado inicial
+    // Estado Inicial
     updateScroll();
 
 });
+

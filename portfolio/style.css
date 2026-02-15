@@ -1186,7 +1186,8 @@ body {
     opacity: 1;
 }
 
-.skill-card:hover {
+.skill-card:hover,
+.skill-card.selected {
     border-color: var(--accent-color);
     transform: translateY(-12px) scale(1.02);
     box-shadow: 0 12px 35px var(--shadow-color),
@@ -1194,15 +1195,8 @@ body {
     background: var(--card-hover-bg);
 }
 
-.skill-icon {
-    font-size: 3rem;
-    color: #7b68a8;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
-    z-index: 1;
-}
-
-.skill-card:hover .skill-icon {
+.skill-card:hover .skill-icon,
+.skill-card.selected .skill-icon {
     transform: scale(1.1) rotate(5deg);
     color: var(--accent-color);
 }
@@ -1216,32 +1210,38 @@ body {
 /* --- Cores das Habilidades (Hover) --- */
 
 /* HTML5 - Laranja (#E34F26) */
-.skill-html:hover {
+.skill-html:hover,
+.skill-html.selected {
     border-color: #E34F26;
     box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(227, 79, 38, 0.2);
 }
 
-.skill-html:hover .skill-icon {
+.skill-html:hover .skill-icon,
+.skill-html.selected .skill-icon {
     color: #E34F26;
 }
 
 /* CSS3 - Azul (#1572B6) */
-.skill-css:hover {
+.skill-css:hover,
+.skill-css.selected {
     border-color: #1572B6;
     box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(21, 114, 182, 0.2);
 }
 
-.skill-css:hover .skill-icon {
+.skill-css:hover .skill-icon,
+.skill-css.selected .skill-icon {
     color: #1572B6;
 }
 
 /* JavaScript - Amarelo (#F7DF1E) */
-.skill-js:hover {
+.skill-js:hover,
+.skill-js.selected {
     border-color: var(--js-color);
     box-shadow: 0 12px 35px var(--shadow-color), 0 0 30px rgba(247, 223, 30, 0.1);
 }
 
-.skill-js:hover .skill-icon {
+.skill-js:hover .skill-icon,
+.skill-js.selected .skill-icon {
     color: var(--js-color);
 }
 
@@ -1308,6 +1308,7 @@ body {
 
 /* ALTA ESPECIFICIDADE: Garante que o hover vença a regra de animação cascata */
 .contact-card:hover,
+.contact-card.selected,
 .contact-grid.active .contact-card:hover {
     border-color: #7b68a8;
     /* Cor base, sobrescrita pelas específicas */
@@ -1367,7 +1368,8 @@ body {
 }
 
 /* Button Hover Geral */
-.contact-card:hover a {
+.contact-card:hover a,
+.contact-card.selected a {
     background: var(--accent-color);
     color: #fff;
     border-color: var(--accent-color);
@@ -1378,14 +1380,15 @@ body {
 /* Exceções de cores de botão (Preenchimento com Marca) */
 /* Exceções de cores de botão (Preenchimento com Marca) */
 /* Instagram */
-.instagram-card:hover a {
+.instagram-card:hover a,
+.instagram-card.selected a {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     border-color: transparent;
     color: white;
-    /* Texto branco no fundo colorido */
 }
 
-.instagram-card:hover i {
+.instagram-card:hover i,
+.instagram-card.selected i {
     background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -1394,39 +1397,45 @@ body {
 }
 
 /* Email */
-.email-card:hover a {
+.email-card:hover a,
+.email-card.selected a {
     background: #EA4335;
     border-color: #EA4335;
     color: white;
 }
 
-.email-card:hover i {
+.email-card:hover i,
+.email-card.selected i {
     color: #EA4335;
     transform: scale(1.2) rotate(-5deg);
     text-shadow: 0 0 10px rgba(234, 67, 53, 0.4);
 }
 
 /* GitHub */
-.github-card:hover a {
+.github-card:hover a,
+.github-card.selected a {
     background: var(--text-color);
     border-color: var(--text-color);
     color: var(--bg-color);
 }
 
-.github-card:hover i {
+.github-card:hover i,
+.github-card.selected i {
     color: var(--text-color);
     transform: scale(1.2);
     text-shadow: 0 0 10px var(--shadow-color);
 }
 
 /* Mapa */
-.map-card:hover a {
+.map-card:hover a,
+.map-card.selected a {
     background: #34A853;
     border-color: #34A853;
     color: white;
 }
 
-.map-card:hover i {
+.map-card:hover i,
+.map-card.selected i {
     color: #34A853;
     transform: scale(1.2);
     text-shadow: 0 0 10px rgba(52, 168, 83, 0.4);
@@ -1601,6 +1610,7 @@ body {
         /* Corte de Texto para caber */
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -1621,14 +1631,19 @@ body {
         margin-bottom: 40px;
     }
 
-    /* Overlay no Mobile - Exibido ao Toque */
+    /* Overlay no Mobile - Laser Focus (Intersection Observer) */
     .project-overlay {
         opacity: 0;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(10px);
     }
 
-    .card-image-wrapper:active .project-overlay {
+    .project-card.selected .project-overlay {
         opacity: 1;
+        transform: translateY(0);
     }
+
+    /* Removido o efeito laser scanline por ser visualmente poluído */
 
     /* Geral */
     .content-section {
