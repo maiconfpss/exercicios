@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Conversor de Moedas</h1>
+    </header>
+
+    <main>
+        <section class="convert-section">
+
+            <div class="convert-container">
+                <div class="convert-select">
+                    <label for="valor">Valor</label>
+                    <input type="number" class="input-currency" placeholder="0,00">
+                </div>
+                <div class="convert-select">
+                    <label for="convert">De</label>
+                    <select id="moedaOrigem">
+                        <option value="real">Real (BRL)</option>
+                        <option value="dolar">Dólar dos Estados Unidos (USD)</option>
+                    </select>
+                </div>
+
+                <button class="reverse-btn">⇄</button>
+
+                <div class="convert-select">
+                    <label for="convert">Para</label>
+                    <select id="moedaDestino">
+                        <option value="real">Real (BRL)</option>
+                        <option value="dolar" selected>Dólar dos Estados Unidos (USD)</option>
+                    </select>
+                </div>
+
+                <button class="convert-btn">↺</button>
+
+
+            </div>
+
+            <div class="convert-result">
+                <p>Resultado:</p>
+                <h2 id="resultado">0,00</h2>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GetElementById Exemplo</title>
+</head>
+<body>
+
+    <h1>Digite algo abaixo:</h1>
+    
+    <!-- O elemento que o JavaScript vai procurar -->
+    <input type="text" id="ex" placeholder="Escreva aqui...">
+
+    <!-- Este botão vai chamar a nossa função quando for clicado -->
+    <button onclick="pegarValor()">Mostrar Valor no Console</button>
+
+    <!-- 
+        IMPORTANTE: O script é colocado no final do body.
+        Isso garante que todos os elementos HTML (input, button) já existem
+        antes do JavaScript tentar encontrá-los.
+    -->
+
+    <!-- 
+        O SEGREDO: O atributo 'onclick' diz: 
+        "Quando clicar aqui, execute a função pegarValor()" 
+    -->
+
+    <p class="wasd">sdawsdawsdawsdwasdaws</p>
+    <h1 class="wasd">asdawsdwasdwasdawsdaw</h1>
+    <button class="wasd">asdasd</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

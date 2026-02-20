@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Função</title>
+</head>
+<body>
+
+    <h1>Exemplo Real: Função</h1>
+    
+    <p id="texto-na-tela">O texto original é esse aqui.</p>
+
+    <!-- 
+        O SEGREDO: O atributo 'onclick' diz: 
+        "Quando clicar aqui, execute a função trocarCor()" 
+    -->
+    <button onclick="trocarCor()">Clique para Mágica</button>
+
+    <script>
+        // Aqui é a nossa Função (A Ação)
+        function trocarCor() {
+            // 1. Acessa o elemento <p> pelo ID dele
+            const elemento = document.getElementById("texto-na-tela");
+
+            // 2. Troca o texto que está escrito
+            elemento.innerText = "A Função funcionou! O texto mudou.";
+            
+            // 3. Troca a cor de fundo do site
+            document.body.style.backgroundColor = "#D8BFD8"; // Cor Lilás
+        }
+    </script>
+</body>
+</html>
