@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <h1>Minhas Tarefas</h1>
+
+        <!-- Campo para digitar nova tarefa -->
+        <div class="input-area">
+            <input type="text" id="task-input" placeholder="Digite uma tarefa..." />
+            <button id="add-btn">Adicionar</button>
+        </div>
+
+        <!-- Contadores -->
+        <div class="counters">
+            <span id="total-count">0 tarefas</span>
+            <span id="done-count">0 concluídas</span>
+        </div>
+
+        <!-- Lista de tarefas - os <li> entram aqui via JS -->
+        <ul id="task-list"></ul>
+
+        <!-- Aparece só quando não tem tarefas -->
+        <div class="empty-state" id="empty-state">
+            <span>📝</span>
+            <p>Nenhuma tarefa ainda. Adicione uma!</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

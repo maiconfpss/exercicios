@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f0f1a;
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+/* ========================
+   APP CONTAINER
+========================= */
+.app {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 540px;
+    backdrop-filter: blur(20px);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    background: linear-gradient(90deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================
+   INPUT AREA
+========================= */
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#task-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#task-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+#task-input:focus {
+    border-color: rgba(167, 139, 250, 0.6);
+}
+
+#add-btn {
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+#add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+#add-btn:active {
+    transform: scale(0.97);
+}
+
+/* ========================
+   COUNTERS
+========================= */
+.counters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#done-count {
+    color: #6ee7b7;
+}
+
+/* ========================
+   TASK LIST
+========================= */
+#task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Cada item da lista */
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    transition: background 0.2s;
+    animation: slide-in 0.25s ease;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Checkbox personalizado */
+.task-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid rgba(167, 139, 250, 0.5);
+    background: transparent;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+}
+
+.task-check:hover {
+    border-color: #a78bfa;
+    background: rgba(167, 139, 250, 0.1);
+}
+
+/* Texto da tarefa */
+.task-text {
+    flex: 1;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.2s;
+}
+
+/* Botão de deletar */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    line-height: 1;
+}
+
+.delete-btn:hover {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+}
+
+/* Estado: tarefa concluída */
+.task-item.done .task-text {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.task-item.done .task-check {
+    background: #a78bfa;
+    border-color: #a78bfa;
+    color: #fff;
+}
+
+.task-item.done {
+    background: rgba(167, 139, 250, 0.05);
+}
+
+/* ========================
+   EMPTY STATE
+========================= */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.empty-state span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
+
+/* Esconde o empty state quando hidden */
+.empty-state.hidden {
+    display: none;
+}

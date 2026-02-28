@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Player Music</title>
+    <link rel="shortcut icon" href="src/image/icons/icon-favicon.png">
+    <link rel="stylesheet" href="./src/styles/styles.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <section class="banner"> <!-- banner central -->
+            <img 
+                src="./src/image/banner/si-no-estas.png" 
+                alt="Si no estas"
+                >
+        </section>
+
+        <section class="player-down">   <!-- banner lateral capa/album -->
+            <img 
+                class="capa"
+                src="./src/image/banner/si-no-estas.png" 
+                alt="Volume"
+                >
+
+                    <!-- INFOS -->
+
+        <section class="info">
+            <h2 class="title">Si No Estas</h2>
+            <p class="artist">Iñigo Quintero</p>
+            <p>ano: 2024</p>
+        </section>
+
+                        <!-- CONTROLS -->
+
+        <section class="controls">
+
+            <button 
+                class="atras" 
+                id="atras">
+                <img 
+                    src="./src/image/icons/costas.png" 
+                    alt="Voltar"
+                    >
+            </button>
+
+            <button 
+                class="play" 
+                id="play">
+                <img 
+                    src="./src/image/icons/botao-play.png" 
+                    alt="play"
+                    >
+
+            </button>
+
+            <!-- <button 
+                class="pause" 
+                id="pause">
+                <img 
+                    src="./src/image/icons/pausa.png" 
+                    alt="pause"
+                    >
+            </button> -->
+
+            
+
+            <button 
+                class="avancar" 
+                id="avancar">
+                <img 
+                    src="./src/image/icons/proximo.png" 
+                    alt="Avançar"
+                    >
+            </button>
+
+        </section>
+
+            <audio id="audio">
+                <source 
+                    src="./src/audio/iñigo quintero - Si No Estás (Letra Oficial) - iñigo quintero (youtube).mp3" 
+                    type="audio/mp3">
+            </audio>
+
+        </section>
+
+    </main>
+
+    <script src="./src/js/javascript.js"></script>
+    
+</body>
+</html>

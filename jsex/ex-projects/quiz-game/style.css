@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+/* ========================
+   RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: #0d0d1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background animated blobs */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    background: #6c63ff;
+    top: -150px;
+    left: -100px;
+    animation: float-blob 8s ease-in-out infinite;
+}
+
+body::after {
+    background: #ff6584;
+    bottom: -150px;
+    right: -100px;
+    animation: float-blob 10s ease-in-out infinite reverse;
+}
+
+@keyframes float-blob {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, 30px);
+    }
+}
+
+/* ========================
+   SCREENS
+========================= */
+.screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 20px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* ========================
+   CARD (START + RESULT)
+========================= */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 460px;
+    width: 100%;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    animation: rise-in 0.5s ease forwards;
+}
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+.card h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #a78bfa, #818cf8, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-size: 1rem;
+}
+
+/* ========================
+   BUTTONS
+========================= */
+.btn {
+    border: none;
+    padding: 14px 36px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Outfit', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6c63ff, #a78bfa);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(108, 99, 255, 0.6);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+/* ========================
+   QUIZ SCREEN
+========================= */
+.quiz-container {
+    max-width: 620px;
+    width: 100%;
+}
+
+.quiz-header {
+    margin-bottom: 24px;
+}
+
+.progress-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #6c63ff, #a78bfa);
+    border-radius: 99px;
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(108, 99, 255, 0.6);
+}
+
+.counter {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+}
+
+.question-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(20px);
+}
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #f0f0ff;
+}
+
+/* ========================
+   OPTIONS GRID
+========================= */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 18px 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    backdrop-filter: blur(10px);
+    line-height: 1.4;
+}
+
+.option-btn:hover {
+    background: rgba(108, 99, 255, 0.2);
+    border-color: rgba(108, 99, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Estado: Correto */
+.option-btn.correct {
+    background: rgba(52, 211, 153, 0.2);
+    border-color: #34d399;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+    color: #6ee7b7;
+    cursor: default;
+}
+
+/* Estado: Errado */
+.option-btn.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    cursor: default;
+}
+
+/* Estado: Desabilitado (após responder) */
+.option-btn:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+/* ========================
+   RESULT SCREEN
+========================= */
+.result-emoji {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.result-card h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.score-text {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+}
+
+.score-text strong {
+    color: #a78bfa;
+    font-size: 1.4rem;
+}
+
+.result-message {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* ========================
+   RESPONSIVE
+========================= */
+@media (max-width: 520px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 36px 24px;
+    }
+
+    .question-text {
+        font-size: 1.1rem;
+    }
+}

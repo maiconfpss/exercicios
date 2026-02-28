@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1C2321;
+    color: #E1E1E6;
+}
+
+                /* CONTEINER CENTER */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100vh;
+}
+
+                /* BANNER CENTER */
+
+.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+}
+
+.capa {
+    display: none;
+}
+
+                 /* CONTROLS */
+
+.controls button {
+    background-color: blue;
+    border: 3px solid #E1E1E6;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.play img {
+    width: 50px;
+}
+
+.pause img {
+    width: 40px;
+    display: none;
+}

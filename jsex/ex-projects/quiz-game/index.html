@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Quiz Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ========================
+         TELA INICIAL
+    ========================= -->
+    <div class="screen" id="start-screen">
+        <div class="card">
+            <div class="logo">⚡</div>
+            <h1>JS Quiz</h1>
+            <p>Teste seu conhecimento em JavaScript com 5 perguntas. Você consegue acertar todas?</p>
+            <button id="start-btn" class="btn btn-primary">Iniciar Quiz</button>
+        </div>
+    </div>
+
+    <!-- ========================
+         TELA DO QUIZ
+    ========================= -->
+    <div class="screen hidden" id="quiz-screen">
+        <div class="quiz-container">
+
+            <div class="quiz-header">
+                <div class="progress-wrapper">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <span id="question-counter" class="counter">Pergunta 1/5</span>
+            </div>
+
+            <div class="question-box">
+                <p id="question-text" class="question-text">Carregando pergunta...</p>
+            </div>
+
+            <div class="options-grid" id="options-grid">
+                <!-- As opções serão inseridas pelo JavaScript -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================
+         TELA DE RESULTADO
+    ========================= -->
+    <div class="screen hidden" id="result-screen">
+        <div class="card result-card">
+            <div id="result-emoji" class="result-emoji">🏆</div>
+            <h2 id="result-title">Resultado</h2>
+            <p id="result-score" class="score-text">Você acertou <strong id="correct-count">?</strong> de 5 perguntas!
+            </p>
+            <p id="result-message" class="result-message">Mensagem aqui</p>
+            <button id="restart-btn" class="btn btn-primary">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
