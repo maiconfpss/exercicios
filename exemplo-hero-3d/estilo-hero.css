@@ -1,0 +1,354 @@
+/* ==========================================================
+   HERO CARROSSEL — Estilo Didático
+   EccoFlix | Exemplo de Estudo
+   
+   PALETA DE CORES:
+   #0C1618  → Preto (fundo principal)
+   #232388  → Azul (destaque, borda de seleção)
+   #E1E6E1  → Cinza claro (textos)
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   RESET BÁSICO
+   Remove margens e paddings que o navegador coloca por padrão.
+   box-sizing: border-box faz o padding ser contado DENTRO
+   do tamanho do elemento, não por fora.
+---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0C1618;
+    color: #E1E6E1;
+    font-family: 'Poppins', sans-serif;
+
+    /* Centraliza o carrossel na tela toda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ----------------------------------------------------------
+   O PALCO DO CARROSSEL
+   
+   É um container com tamanho fixo.
+   Todos os cards ficam "empilhados" dentro dele
+   usando position: absolute (cada um ocupa o mesmo espaço).
+---------------------------------------------------------- */
+.hero-carrossel {
+    position: relative;
+    /* Pai de referência para os cards absolutos */
+    width: 1100px;
+    height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ----------------------------------------------------------
+   O CARD BASE
+   
+   Todo card começa aqui — tamanho, borda, cursor, etc.
+   As classes de posição (.item-ativo, .item-anterior...)
+   adicionam apenas o que MUDA em cada posição.
+
+   POR QUE overflow: hidden?
+   O .card tem border-radius: 14px. O overflow: hidden garante
+   que a imagem e a gaveta respeitem esses cantos arredondados.
+   Sem ele, o conteúdo transbordaria pelos cantos.
+
+   POR QUE background-color?
+   Os cards laterais ficam escuros com filter: brightness.
+   Se não tiver fundo sólido, o card de trás "vaza" pela
+   transparência. O fundo #0C1618 bloqueia esse vazamento.
+---------------------------------------------------------- */
+.card {
+    position: absolute;
+    /* Todos os cards no mesmo lugar */
+    width: 560px;
+    border-radius: 14px;
+    cursor: pointer;
+    overflow: hidden;
+    /* Respeita o border-radius em tudo dentro */
+    background-color: #0C1618;
+    /* Bloqueia vazamento dos cards de trás */
+
+    /* Animação suave em TUDO que mudar (posição, tamanho, brilho) */
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* cubic-bezier(0.25, 0.8, 0.25, 1) → curva "ease-out" premium:
+       começa rápido e desacelera suavemente no final */
+}
+
+
+/* ----------------------------------------------------------
+   A IMAGEM DO CARD (O PÔSTER)
+
+   POR QUE background-image ao invés de <img>?
+   background-size: cover faz a imagem sempre preencher
+   o container inteiro, sem distorção, independente do
+   tamanho original da imagem exportada do Figma.
+---------------------------------------------------------- */
+.card-imagem {
+    width: 100%;
+    height: 310px;
+    position: relative;
+    /* Necessário para o ::after e o .play-btn ficarem dentro */
+    z-index: 2;
+    /* Fica na frente da .card-infos */
+
+    background-size: cover;
+    background-position: center top;
+    /* Foca na parte de cima (onde ficam os rostos) */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gradiente escuro que aparece na parte de baixo da imagem.
+   Serve pra suavizar a transição entre o pôster e a gaveta preta. 
+   
+   POR QUE ::after e não um div?
+   Porque um elemento decorativo não precisa existir no HTML.
+   O ::after cria um elemento CSS invisível que só serve de overlay. */
+.card-imagem::after {
+    content: '';
+    /* Obrigatório para o ::after aparecer */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, rgba(10, 15, 20, 0.85), transparent);
+    z-index: 1;
+}
+
+
+/* ----------------------------------------------------------
+   BOTÃO PLAY
+   
+   É só um container transparente.
+   O visual do botão (círculo, ícone) vem 100% da imagem
+   exportada do Figma (Group 1.png).
+   O CSS só posiciona e controla visibilidade.
+   
+   POR QUE opacity em vez de display: none?
+   display: none tira o elemento e não permite animar.
+   opacity: 0 deixa invisível MAS mantém o elemento,
+   permitindo a transition suave de aparecer/sumir.
+---------------------------------------------------------- */
+.play-btn {
+    position: absolute;
+    z-index: 3;
+    /* Fica na frente do gradiente ::after */
+
+    background: none;
+    border: none;
+
+    /* Escondido por padrão — aparece só no hover do card ativo */
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.play-btn img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+
+/* ----------------------------------------------------------
+   AS 5 POSIÇÕES DO CARROSSEL
+   
+   Cada classe representa uma posição no "palco".
+   O JavaScript troca essas classes entre os cards
+   para criar o efeito de girar.
+
+   POR QUE filter: brightness e não opacity?
+   opacity torna o elemento TRANSPARENTE — o card de trás
+   aparece através dele (vazamento de imagem).
+   filter: brightness(0.5) ESCURECE o card sem transparência.
+   É a ferramenta certa para este caso.
+
+   POR QUE z-index diferente em cada posição?
+   Para controlar qual card fica na frente dos outros.
+   Quanto maior o z-index, mais na frente fica.
+---------------------------------------------------------- */
+
+/* CENTRO — O card principal, em destaque */
+.item-ativo {
+    transform: translateX(0) scale(1);
+    /* No centro, tamanho normal */
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ESQUERDA — Deslocado para a esquerda e menor */
+.item-anterior {
+    transform: translateX(-50%) scale(0.82);
+    z-index: 5;
+    filter: brightness(0.55);
+    /* Escurece 45% sem transparência */
+}
+
+/* DIREITA — Deslocado para a direita e menor */
+.item-proximo {
+    transform: translateX(50%) scale(0.82);
+    z-index: 5;
+    filter: brightness(0.55);
+}
+
+/* PONTAS — Visíveis mas bem apagados nas bordas da tela */
+.escondido-esquerda {
+    transform: translateX(-82%) scale(0.62);
+    z-index: 1;
+    filter: brightness(0.3);
+    pointer-events: none;
+    /* Desativa clique — não deve ser interativo */
+}
+
+.escondido-direita {
+    transform: translateX(82%) scale(0.62);
+    z-index: 1;
+    filter: brightness(0.3);
+    pointer-events: none;
+}
+
+
+/* ----------------------------------------------------------
+   GAVETA DE INFORMAÇÕES (O PAINEL QUE DESCE NO HOVER)
+   
+   POR QUE max-height e não height?
+   height não pode ser animado de 0 para "auto" no CSS.
+   max-height contorna isso: vai de 0 (escondida) para
+   um valor grande o suficiente para o conteúdo aparecer.
+   
+   A transition no max-height cria o efeito de "gaveta abrindo".
+   
+   POR QUE não usar position: absolute aqui?
+   Se fosse absolute, ficaria fora do card e a borda azul
+   (box-shadow) não a englobaria.
+   Como é um elemento normal (no fluxo), quando ela cresce,
+   o card cresce junto — e a borda acompanha tudo.
+---------------------------------------------------------- */
+.card-infos {
+    width: 100%;
+    background-color: #0C1618;
+    text-align: center;
+
+    /* ESTADO PADRÃO: invisível e sem altura */
+    max-height: 0;
+    padding: 0 30px;
+    opacity: 0;
+
+    transition:
+        max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity 0.3s ease,
+        padding 0.35s ease;
+}
+
+
+/* ----------------------------------------------------------
+   HOVER — O QUE ACONTECE QUANDO O MOUSE PASSA EM CIMA
+   
+   O seletor ".item-ativo:hover .play-btn" significa:
+   "Quando o mouse estiver SOBRE .item-ativo,
+    aplique este estilo em .play-btn que está DENTRO dele"
+   
+   É assim que o CSS "fala" com elementos filhos
+   baseado no estado do pai.
+---------------------------------------------------------- */
+
+/* Card ativo no hover: cresce e acende a borda azul */
+.item-ativo:hover {
+    transform: translateX(0) scale(1.03);
+
+    /* box-shadow com 0 spread cria uma "borda" sem alterar o layout.
+       É melhor que border: porque não quebra o tamanho do elemento. */
+    box-shadow:
+        0 0 0 2px #232388,
+        /* A borda azul */
+        0 0 30px rgba(35, 35, 136, 0.45),
+        /* Brilho azul ao redor */
+        0 25px 60px rgba(0, 0, 0, 0.6);
+    /* Sombra de profundidade */
+}
+
+/* Mostra o botão play */
+.item-ativo:hover .play-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Abre a gaveta de informações */
+.item-ativo:hover .card-infos {
+    max-height: 160px;
+    /* Valor maior que o conteúdo real — funciona como "auto" */
+    padding: 18px 30px 22px;
+    opacity: 1;
+}
+
+/* Cards laterais no hover: só iluminam um pouco, sem play */
+.item-anterior:hover {
+    filter: brightness(0.75);
+    transform: translateX(-48%) scale(0.85);
+}
+
+.item-proximo:hover {
+    filter: brightness(0.75);
+    transform: translateX(48%) scale(0.85);
+}
+
+
+/* ----------------------------------------------------------
+   TEXTOS DA GAVETA
+---------------------------------------------------------- */
+.card-infos h3 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: #E1E6E1;
+}
+
+.card-infos .nota {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    color: #E1E6E1;
+    opacity: 0.85;
+}
+
+.card-infos .generos {
+    font-size: 12px;
+    color: #E1E6E1;
+    opacity: 0.55;
+}
+
+/* Botão "Saber Mais" (imagem exportada do Figma) */
+.seta-baixo {
+    margin-top: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.seta-baixo img {
+    height: 32px;
+    object-fit: contain;
+}
+
+.seta-baixo:hover {
+    opacity: 1;
+    transform: translateY(3px);
+    /* Desce 3px no hover — toque de interatividade */
+}
